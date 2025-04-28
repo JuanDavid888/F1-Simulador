@@ -1,0 +1,1 @@
+import '../components/content-F1.js'

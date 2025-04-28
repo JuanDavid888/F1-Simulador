@@ -1,25 +1,44 @@
 // Lista de pilotos
 const pilotos = [
-    { id: 1, nombre: "Max Verstappen", equipo: "Red Bull Racing", rol: "Líder" },
-    { id: 2, nombre: "Yuki Tsunoda", equipo: "Red Bull Racing", rol: "Escudero" },
-    { id: 3, nombre: "George Russell", equipo: "Mercedes-AMG Petronas", rol: "Líder" },
-    { id: 4, nombre: "Kimi Antonelli", equipo: "Mercedes-AMG Petronas", rol: "Escudero" },
-    { id: 5, nombre: "Charles Leclerc", equipo: "Ferrari", rol: "Líder" },
-    { id: 6, nombre: "Lewis Hamilton", equipo: "Ferrari", rol: "Escudero" },
-    { id: 7, nombre: "Lando Norris", equipo: "McLaren", rol: "Líder" },
-    { id: 8, nombre: "Oscar Piastri", equipo: "McLaren", rol: "Escudero" },
-    { id: 9, nombre: "Fernando Alonso", equipo: "Aston Martin", rol: "Líder" },
-    { id: 10, nombre: "Lance Stroll", equipo: "Aston Martin", rol: "Escudero" },
-    { id: 11, nombre: "Fernando Alonso", equipo: "Alpine", rol: "Líder" },
-    { id: 12, nombre: "Pierre Gasly", equipo: "Alpine", rol: "Escudero" },
-    { id: 13, nombre: "Nico Hulkenberg", equipo: "Kick Sauber", rol: "Líder" },
-    { id: 14, nombre: "Gabriel Bortoleto", equipo: "Kick Sauber", rol: "Escudero" },
-    { id: 15, nombre: "Esteban Ocon", equipo: "Haas", rol: "Líder" },
-    { id: 16, nombre: "Oliver Bearman", equipo: "Haas", rol: "Escudero" },
-    { id: 17, nombre: "Liam Lawson", equipo: "Racing Bulls", rol: "Líder" },
-    { id: 18, nombre: "Isack Hadjar", equipo: "Racing Bulls", rol: "Escudero" },
-    { id: 19, nombre: "Alexander Albon", equipo: "Williams", rol: "Líder" },
-    { id: 20, nombre: "Carlos Sainz", equipo: "Williams", rol: "Escudero" }
+    { id: 1, nombre: "Max Verstappen", equipo: "Red Bull Racing", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/verstappen" },
+
+    { id: 2, nombre: "Yuki Tsunoda", equipo: "Red Bull Racing", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/tsunoda" },
+
+    { id: 3, nombre: "George Russell", equipo: "Mercedes-AMG Petronas", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/russell" },
+
+    { id: 4, nombre: "Kimi Antonelli", equipo: "Mercedes-AMG Petronas", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/antonelli" },
+
+    { id: 5, nombre: "Charles Leclerc", equipo: "Ferrari", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/leclerc" },
+
+    { id: 6, nombre: "Lewis Hamilton", equipo: "Ferrari", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hamilton" },
+
+    { id: 7, nombre: "Lando Norris", equipo: "McLaren", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/piastri" },
+
+    { id: 8, nombre: "Oscar Piastri", equipo: "McLaren", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/norris" },
+
+    { id: 9, nombre: "Fernando Alonso", equipo: "Aston Martin", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/stroll" },
+
+    { id: 10, nombre: "Lance Stroll", equipo: "Aston Martin", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/alonso" },
+
+    { id: 11, nombre: "Fernando Alonso", equipo: "Alpine", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/gasly" },
+
+    { id: 12, nombre: "Pierre Gasly", equipo: "Alpine", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/doohan" },
+
+    { id: 13, nombre: "Nico Hulkenberg", equipo: "Kick Sauber", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hulkenberg" },
+
+    { id: 14, nombre: "Gabriel Bortoleto", equipo: "Kick Sauber", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/bortoleto" },
+
+    { id: 15, nombre: "Esteban Ocon", equipo: "Haas", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/ocon" },
+
+    { id: 16, nombre: "Oliver Bearman", equipo: "Haas", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/bearman" },
+
+    { id: 17, nombre: "Liam Lawson", equipo: "Racing Bulls", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/fom-website/drivers/2025Drivers/lawson-racing-bulls" },
+
+    { id: 18, nombre: "Isack Hadjar", equipo: "Racing Bulls", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hadjar" },
+
+    { id: 19, nombre: "Alexander Albon", equipo: "Williams", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/albon" },
+
+    { id: 20, nombre: "Carlos Sainz", equipo: "Williams", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/sainz" }
 ]
 
 // Lista de equipos con sus pilotos
@@ -28,7 +47,7 @@ const equipos = [
     nombre: "Red Bull Racing",
     pais: "Austria",
     motor: "Honda",
-     pilotos: [1, 2], // IDs de pilotos
+    pilotos: [1, 2], // IDs de pilotos
     imagen: "https://cdn-5.motorsport.com/images/mgl/Y99JQRbY/s8/red-bull-racing-logo-1.jpg"
     },
     {
@@ -207,6 +226,7 @@ const circuitos = [
 // Lista de vehículos con rendimiento detallado
 const vehiculos = [
     {
+    id: 1,
     equipo: "Red Bull Racing",
     modelo: "RB20",
     motor: "Honda",
@@ -234,6 +254,7 @@ const vehiculos = [
     },
 
     {
+    id: 2,
     equipo: "Mercedes-AMG Petronas",
     modelo: "W15",
     motor: "Mercedes",
@@ -261,6 +282,7 @@ const vehiculos = [
     },
 
     {
+    id: 3,
     equipo: "Ferrari",
     modelo: "F40",
     motor: "Ferrari",
@@ -288,6 +310,7 @@ const vehiculos = [
     },
 
     {
+    id: 4,
     equipo: "McLaren",
     modelo: "MP4-26",
     motor: "McLaren",
@@ -315,6 +338,7 @@ const vehiculos = [
     },
 
     {
+    id: 5,
     equipo: "Aston Martin",
     modelo: "DBR9",
     motor: "Aston Martin",
@@ -342,6 +366,7 @@ const vehiculos = [
     },
 
     {
+    id: 6,
     equipo: "Alpine",
     modelo: "A1",
     motor: "Alpine",
@@ -369,6 +394,7 @@ const vehiculos = [
     },
 
     {
+    id: 7,
     equipo: "Kick Sauber",
     modelo: "F1",
     motor: "Kick Sauber",
@@ -396,6 +422,7 @@ const vehiculos = [
     },
 
     {
+    id: 8,
     equipo: "Haas",
     modelo: "F1",
     motor: "Haas",
@@ -423,6 +450,7 @@ const vehiculos = [
     },
 
     {
+    id: 9,
     equipo: "Racing Bulls",
     modelo: "RB20",
     motor: "Honda",
@@ -450,6 +478,7 @@ const vehiculos = [
     },
 
     {
+    id: 10,
     equipo: "Williams",
     modelo: "F1",
     motor: "RedBull",
@@ -476,3 +505,5 @@ const vehiculos = [
     imagen: "https://cdn-2.motorsport.com/images/amp/Y998X97Y/s6/williams-racing-fw46.jpg"
     }
 ]
+
+export { pilotos, equipos, circuitos, vehiculos };
