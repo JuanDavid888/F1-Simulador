@@ -1,25 +1,25 @@
 // Lista de pilotos
 const pilotos = [
     { id: 1, nombre: "Max Verstappen", equipo: "Red Bull Racing", rol: "Líder" },
-    { id: 2, nombre: "Sergio Pérez", equipo: "Red Bull Racing", rol: "Escudero" },
-    { id: 3, nombre: "Lewis Hamilton", equipo: "Mercedes-AMG Petronas", rol: "Líder" },
-    { id: 4, nombre: "George Russell", equipo: "Mercedes-AMG Petronas", rol: "Escudero" },
+    { id: 2, nombre: "Yuki Tsunoda", equipo: "Red Bull Racing", rol: "Escudero" },
+    { id: 3, nombre: "George Russell", equipo: "Mercedes-AMG Petronas", rol: "Líder" },
+    { id: 4, nombre: "Kimi Antonelli", equipo: "Mercedes-AMG Petronas", rol: "Escudero" },
     { id: 5, nombre: "Charles Leclerc", equipo: "Ferrari", rol: "Líder" },
-    { id: 6, nombre: "Carlos Sainz", equipo: "Ferrari", rol: "Escudero" },
+    { id: 6, nombre: "Lewis Hamilton", equipo: "Ferrari", rol: "Escudero" },
     { id: 7, nombre: "Lando Norris", equipo: "McLaren", rol: "Líder" },
     { id: 8, nombre: "Oscar Piastri", equipo: "McLaren", rol: "Escudero" },
     { id: 9, nombre: "Fernando Alonso", equipo: "Aston Martin", rol: "Líder" },
     { id: 10, nombre: "Lance Stroll", equipo: "Aston Martin", rol: "Escudero" },
-    { id: 11, nombre: "Esteban Ocon", equipo: "Alpine", rol: "Líder" },
+    { id: 11, nombre: "Fernando Alonso", equipo: "Alpine", rol: "Líder" },
     { id: 12, nombre: "Pierre Gasly", equipo: "Alpine", rol: "Escudero" },
-    { id: 13, nombre: "Valtteri Bottas", equipo: "Alfa Romeo", rol: "Líder" },
-    { id: 14, nombre: "Zhou Guanyu", equipo: "Alfa Romeo", rol: "Escudero" },
-    { id: 15, nombre: "Kevin Magnussen", equipo: "Haas", rol: "Líder" },
-    { id: 16, nombre: "Nico Hülkenberg", equipo: "Haas", rol: "Escudero" },
-    { id: 17, nombre: "Yuki Tsunoda", equipo: "AlphaTauri", rol: "Líder" },
-    { id: 18, nombre: "Daniel Ricciardo", equipo: "AlphaTauri", rol: "Escudero" },
+    { id: 13, nombre: "Nico Hulkenberg", equipo: "Kick Sauber", rol: "Líder" },
+    { id: 14, nombre: "Gabriel Bortoleto", equipo: "Kick Sauber", rol: "Escudero" },
+    { id: 15, nombre: "Esteban Ocon", equipo: "Haas", rol: "Líder" },
+    { id: 16, nombre: "Oliver Bearman", equipo: "Haas", rol: "Escudero" },
+    { id: 17, nombre: "Liam Lawson", equipo: "Racing Bulls", rol: "Líder" },
+    { id: 18, nombre: "Isack Hadjar", equipo: "Racing Bulls", rol: "Escudero" },
     { id: 19, nombre: "Alexander Albon", equipo: "Williams", rol: "Líder" },
-    { id: 20, nombre: "Logan Sargeant", equipo: "Williams", rol: "Escudero" }
+    { id: 20, nombre: "Carlos Sainz", equipo: "Williams", rol: "Escudero" }
 ]
 
 // Lista de equipos con sus pilotos
@@ -29,75 +29,74 @@ const equipos = [
     pais: "Austria",
     motor: "Honda",
      pilotos: [1, 2], // IDs de pilotos
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/b/bb/Red_Bull_Racing_Logo.svg"
+    imagen: "https://cdn-5.motorsport.com/images/mgl/Y99JQRbY/s8/red-bull-racing-logo-1.jpg"
     },
     {
     nombre: "Mercedes-AMG Petronas",
     pais: "Alemania",
     motor: "Mercedes",
     pilotos: [3, 4],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/3/32/Mercedes_AMG_Petronas_F1_Team_logo.svg"
+    imagen: "https://cdn-7.motorsport.com/images/mgl/0RrzmDo0/s8/mercedes-f1-logo-1.jpg"
     },
     {
     nombre: "Ferrari",
     pais: "Italia",   
     motor: "Ferrari",
     pilotos: [5, 6],
-    imagen: "https://upload.wikimedia.org/wikipedia/en/d/d4/Scuderia_Ferrari_Logo.svg"
+    imagen: "https://images1.autocasion.com/actualidad/wp-content/uploads/2015/12/Qu%C3%A9-significa-el-Logo-de-Ferrari--300x200.jpg"
     },
     {
     nombre: "McLaren",
     pais: "Inglaterra",
     motor: "McLaren",
     pilotos: [7, 8],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/McLaren_Logo.svg/1200px-McLaren_Logo.svg.png"
+    imagen: "https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/01/23171426/mclaren-logo-2024.jpg"
     },
     {
     nombre: "Aston Martin",
     pais: "Inglaterra",
     motor: "Aston Martin",
     pilotos: [9, 10],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Aston_Martin_F1_Logo.svg/1200px-Aston_Martin_F1_Logo.svg.png"
+    imagen: "https://assets.astonmartinf1.com/public/cms/29S4paAKB9c3x7bCuLWApv/c3bc23bf4bbf2d5412b2c74f2384f1da/amf1-logo-2024-white_-_Website_header.png"
     },
     {
     nombre: "Alpine",
     pais: "Francia",
     motor: "Alpine",
     pilotos: [11, 12],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Alpine_F1_Logo.svg/1200px-Alpine_F1_Logo.svg.png"
+    imagen: "https://cdn.group.renault.com/alp/master/formula-1/homepage/alpine-F1-home-013-mobile.jpg.ximg.xsmall.jpg/114c58d502.jpg"
     },
     {
-    nombre: "Alfa Romeo",
+    nombre: "Kick Sauber",
     pais: "Italia",
     motor: "Alfa Romeo",
     pilotos: [13, 14],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Alfa_Romeo_F1_Logo.svg/1200px-Alfa_Romeo_F1_Logo.svg.png"
+    imagen: "https://pbs.twimg.com/profile_images/1838256124438421505/F6SzatG3_400x400.png"
     },
     {
     nombre: "Haas",
     pais: "Alemania",
     motor: "Haas",
     pilotos: [15, 16],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Haas_F1_Logo.svg/1200px-Haas_F1_Logo.svg.png"
+    imagen: "https://fanabox.com/cdn/shop/files/grosjeanhaascap4_480x480_a49953a4-ad49-470b-bd98-206744efbe97.jpg?v=1682635073&width=720"
     },
     {
-    nombre: "AlphaTauri",
+    nombre: "Racing Bulls",
     pais: "Italia",
     motor: "AlphaTauri",
     pilotos: [17, 18],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/AlphaTauri_F1_Logo.svg/1200px-AlphaTauri_F1_Logo.svg.png"
+    imagen: "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fit/watermark:Visa%20Cash%20App%20RB%20F1%20Team/width:1080/height:720/plain/https://s3-newsifier.ams3.digitaloceanspaces.com/gpblog.com/images/2025-03/815fd2a24f576b26e7a23eb3ad338cd326e2fd93.jpg@webp"
     },
     {   
     nombre: "Williams",
     pais: "Inglaterra",
     motor: "RedBull",
     pilotos: [19, 20],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Redbull_F1_Logo.svg/1200px-Redbull_F1_Logo.svg.png"
+    imagen: "https://img.freepik.com/vector-premium/logotipo-w-blanco-negro-flecha-azul-sobre-fondo-negro_853558-1301.jpg"
     },
 ];
 
 // Lista de circuitos con estadísticas y ganadores históricos
-
 const circuitos = [
     {
     nombre: "Circuito de Mónaco",
@@ -111,8 +110,8 @@ const circuitos = [
     { temporada: 2022, piloto: 2 },
     { temporada: 2023, piloto: 1 }
     ],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Monte_Carlo_Formula_1_track_map.svg"
-    },
+    imagen: "https://www.f1cfa.com/images/post/D51_C07-22-MONACO-Monaco.JPG"
+    }, // imagen: "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2023/06/03/16857725131564.gif" (gif)
 
     {
     nombre: "Silverstone",
@@ -126,7 +125,7 @@ const circuitos = [
     { temporada: 2022, piloto: 5 },
     { temporada: 2023, piloto: 1 }
     ],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Silverstone_Circuit_2020_layout.png"
+    imagen: "https://images.daznservices.com/di/library/DAZN_News/98/97/gp-gran-bretana-silverstone-formula-1_dt6k7j6rsv581l0s95h8v31fh.jpg?t=-1438907127"
     },
 
     {
@@ -141,7 +140,7 @@ const circuitos = [
     { temporada: 2022, piloto: 1 },
     { temporada: 2023, piloto: 1 }
     ],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Circuit_Spa_2018.png"
+    imagen: "https://images.daznservices.com/di/library/DAZN_News/ec/a/spa-gp-de-belgica-gran-premio-de-belgica-formula-1-f1_sf3v3dosh31t154gh2mug3par.jpg?t=-970892422"
     },
 
     {
@@ -156,7 +155,7 @@ const circuitos = [
     { temporada: 2022, piloto: 1 },
     { temporada: 2023, piloto: 1 }
     ],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Monza_track_map.svg"
+    imagen: "https://images.daznservices.com/di/library/DAZN_News/eb/98/monza-gp-italia-gran-premio-de-italia-formula-1-f1_6ig2wzyt5ppl1i7uyv8q0dxpg.jpg?t=314989067"
     },
 
     {
@@ -171,7 +170,7 @@ const circuitos = [
     { temporada: 2022, piloto: 1 },
     { temporada: 2023, piloto: 1 }
     ],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/2/23/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_%28Interlagos%29.svg"
+    imagen: "https://www.f1cfa.com/images/post/6BC_C19-21-BRASIL-CarlosPace.JPG"
     },
 
     {
@@ -186,7 +185,7 @@ const circuitos = [
     { temporada: 2022, piloto: 1 },
     { temporada: 2023, piloto: 3 }
     ],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/0/0a/Yas_Marina_Circuit_2021_layout.svg"
+    imagen: "https://www.f1cfa.com/images/post/FCD_C23-22-ABUDHABI-YasMarina.JPG"
     },
 
     {
@@ -201,6 +200,279 @@ const circuitos = [
     { temporada: 2022, piloto: 1 },
     { temporada: 2023, piloto: 1 }
     ],
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/e/eb/Suzuka_circuit_map--2005.svg"
+    imagen: "https://images.daznservices.com/di/library/DAZN_News/8c/b9/suzuka-f1_nd5l87nqmsbrzbrq5j9j3obw.jpg?t=-1548675717"
     }
 ];
+
+// Lista de vehículos con rendimiento detallado
+const vehiculos = [
+    {
+    equipo: "Red Bull Racing",
+    modelo: "RB20",
+    motor: "Honda",
+    velocidad_maxima_kmh: 360,
+    aceleracion_0_100: 2.5,
+    pilotos: [1, 2], // Max Verstappen y Sergio Pérez
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 320,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 340,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 300,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://www.amalgamcollection.com/cdn/shop/articles/DSCF6458_1024x1024.jpg?v=1695978601"
+    },
+
+    {
+    equipo: "Mercedes-AMG Petronas",
+    modelo: "W15",
+    motor: "Mercedes",
+    velocidad_maxima_kmh: 350,
+    aceleracion_0_100: 2.7,
+    pilotos: [3, 4], // Lewis Hamilton y George Russell
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 315,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 335,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 295,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://acnews.blob.core.windows.net/imgnews/large/NAZ_c031e02c3c434338b8d3719938ef8c3c.webp"
+    },
+
+    {
+    equipo: "Ferrari",
+    modelo: "F40",
+    motor: "Ferrari",
+    velocidad_maxima_kmh: 350,
+    aceleracion_0_100: 2.7,
+    pilotos: [5, 6], // Charles Leclerc y Carlos Sainz
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 310,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 330,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 290,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://rtrsports.com/wp-content/uploads/2024/07/ferrari-sf-23.jpeg"
+    },
+
+    {
+    equipo: "McLaren",
+    modelo: "MP4-26",
+    motor: "McLaren",
+    velocidad_maxima_kmh: 352,
+    aceleracion_0_100: 2.65,
+    pilotos: [7, 8], // Lando Norris y Oscar Piastri
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 312,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 332,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 292,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://a1.espncdn.com/combiner/i?img=%2Fphoto%2F2024%2F0116%2Fr1278313_1296x729_16%2D9.jpg"
+    },
+
+    {
+    equipo: "Aston Martin",
+    modelo: "DBR9",
+    motor: "Aston Martin",
+    velocidad_maxima_kmh: 348,
+    aceleracion_0_100: 2.75,
+    pilotos: [9, 10], // Lewis Hamilton y Sebastian Vettel
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 308,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 328,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 288,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://d3sc99wzehqi2v.cloudfront.net/images/notas/nota_17403485513310_730.jpg"
+    },
+
+    {
+    equipo: "Alpine",
+    modelo: "A1",
+    motor: "Alpine",
+    velocidad_maxima_kmh: 345,
+    aceleracion_0_100: 2.8,
+    pilotos: [11, 12], // Pierre Gasly y Valtteri Bottas
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 305,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 325,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 285,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://acnews.blob.core.windows.net/imgnews/medium/NAZ_56b2ddeac8f0442c8d0424568180c8c6.webp"
+    },
+
+    {
+    equipo: "Kick Sauber",
+    modelo: "F1",
+    motor: "Kick Sauber",
+    velocidad_maxima_kmh: 355,
+    aceleracion_0_100: 2.7,
+    pilotos: [13, 14], // Zhou Guanyu y Kenta Nagano
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 325,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 345,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 305,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://admin.sauber-group.nobound.com/fileadmin/_processed_/0/e/csm_C45_PR_Visual_Detailview_84e5d217c7.webp"
+    },
+
+    {
+    equipo: "Haas",
+    modelo: "F1",
+    motor: "Haas",
+    velocidad_maxima_kmh: 345,
+    aceleracion_0_100: 2.8,
+    pilotos: [15, 16], // Yuki Tsunoda y Daniel Ricciardo
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 308,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 328,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 292,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://cdn-7.motorsport.com/images/mgl/YpNpL8N0/s700/haas-vf-24-livery.jpg"
+    },
+
+    {
+    equipo: "Racing Bulls",
+    modelo: "RB20",
+    motor: "Honda",
+    velocidad_maxima_kmh: 350,
+    aceleracion_0_100: 2.65,
+    pilotos: [17, 18], // Daniel Ricciardo y Alexander Albon
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 305,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 320,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 285,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://e0.365dm.com/25/02/768x432/skysports-rb-vcarb-racing-bulls_6832979.jpg?20250218205334"
+    },
+
+    {
+    equipo: "Williams",
+    modelo: "F1",
+    motor: "RedBull",
+    velocidad_maxima_kmh: 350,
+    aceleracion_0_100: 2.7,
+    pilotos: [19, 20], // Lewis Hamilton y Sebastian Vettel
+    rendimiento: {
+    conduccion_normal: {
+    velocidad_promedio_kmh: 315,
+    consumo_combustible: { seco: 2.0, lluvioso: 2.2, extremo: 2.5 },
+    desgaste_neumaticos: { seco: 1.6, lluvioso: 0.9, extremo: 2.6 }
+    },
+    conduccion_agresiva: {
+    velocidad_promedio_kmh: 335,
+    consumo_combustible: { seco: 2.6, lluvioso: 2.8, extremo: 3.2 },
+    desgaste_neumaticos: { seco: 2.3, lluvioso: 1.4, extremo: 3.8 }
+    },
+    ahorro_combustible: {
+    velocidad_promedio_kmh: 295,
+    consumo_combustible: { seco: 1.7, lluvioso: 1.9, extremo: 2.2 },
+    desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
+    }
+    },
+    imagen: "https://cdn-2.motorsport.com/images/amp/Y998X97Y/s6/williams-racing-fw46.jpg"
+    }
+]
