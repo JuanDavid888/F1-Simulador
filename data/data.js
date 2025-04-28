@@ -76,7 +76,7 @@ const equipos = [
     pais: "Inglaterra",
     motor: "Aston Martin",
     pilotos: [9, 10],
-    imagen: "https://assets.astonmartinf1.com/public/cms/29S4paAKB9c3x7bCuLWApv/c3bc23bf4bbf2d5412b2c74f2384f1da/amf1-logo-2024-white_-_Website_header.png"
+    imagen: "https://images.daznservices.com/di/library/DAZN_News/e1/b0/2022-03-11-logo-aston-martin-f1-formula-1_11gxc0mj1vntq1xetpipewcfoc.jpg?t=2021864903"
     },
     {
     nombre: "Alpine",
@@ -306,7 +306,7 @@ const vehiculos = [
     desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
     }
     },
-    imagen: "https://rtrsports.com/wp-content/uploads/2024/07/ferrari-sf-23.jpeg"
+    imagen: "https://www.newsauto.it/wp-content/uploads/2023/02/F1-2023-Ferrari-SF-23-2.jpg"
     },
 
     {

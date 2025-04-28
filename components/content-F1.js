@@ -9,38 +9,32 @@ class PilotosF1 extends HTMLElement {
         style.innerHTML = `
         .container {
             width: 100%;
-            background-color:rgb(47, 238, 222);
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 2rem 0;
             gap: 1rem;
-            padding: 1rem;
         }
 
         .lista-pilotos {
-        background-color: rgb(231, 53, 9);
+            background: #fff;
             justify-content: center;
             padding: 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
             gap: 5rem;
             margin-top: 5rem;
         }
 
-        .lista-piloto h2 {
-            margin-bottom: 0.5rem;
-        }
-
         .pilotos {
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 1rem;
-            background: blue;
-            border-radius: 0.5rem;
-            border: 1px solid #000;
+            list-style: none;
             cursor: pointer;
-            transition: box-shadow 0.3s ease-in-out;
+        }
+        
+        .pilotos:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
         }
 
         .pilotos p {
@@ -77,5 +71,4 @@ class PilotosF1 extends HTMLElement {
 }
 
 customElements.define("pilotos-f1", PilotosF1);
-
 export { PilotosF1 };

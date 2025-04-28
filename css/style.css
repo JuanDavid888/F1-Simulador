@@ -5,8 +5,56 @@ body {
     background-color: #000;
 }
 
+.container-welcome {
+    width: 100%;
+    background-color: red;
+}
+
+.img-welcome {
+    background-color: red;
+    display: relative;
+    width: 7.3rem;
+    margin-left: 1rem;
+    margin-top: 2.3rem;
+}
+
 .welcome {
+    background-color: red;
+    height: 6rem;
+    display: relative;
     color: #fff;
-    font-size: 100px;
+    font-size: 2.2rem;
     text-align: center;
+    align-content: center;
+    margin-left: 7.5rem;
+    margin-top: -4rem;
+}
+
+@media screen and (min-width: 700px) {
+    .img-welcome {
+        width: 10rem;
+        margin-left: 4rem;
+        margin-top: 2rem;
+    }
+
+    .welcome {
+        font-size: 3.2rem;
+        margin-left: 10rem;
+        margin-top: -4rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .img-welcome {
+        width: 16rem;
+        margin-left: 10rem;
+        margin-top: 2rem;
+    }
+
+    .welcome {
+        font-size: 4.5rem;
+        margin-left: 12rem;
+        margin-top: -4.4rem;
+    }
+    
 }
