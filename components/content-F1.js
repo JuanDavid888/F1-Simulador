@@ -29,7 +29,6 @@ class PilotosF1 extends HTMLElement {
         .pilotos {
             width: 100%;
             list-style: none;
-            cursor: pointer;
         }
         
         .pilotos:hover {
@@ -44,30 +43,37 @@ class PilotosF1 extends HTMLElement {
         .pilotos img {
             width: 100%;
             display: relative;
+            cursor: pointer;
         }
 
     `;
         container.classList.add("container");
 
-        // Lista de pilotos
+        shadow.appendChild(style);
+        shadow.appendChild(container);
+        this.container = container;
+        this.renderPilotos();
+    }
+
+    renderPilotos = () => {
+        this.container.innerHTML = "";
         const listaPilotos = document.createElement("ul");
         listaPilotos.classList.add("lista-pilotos");
 
         pilotos.forEach(piloto => {
-            const infoPiloto = document.createElement("li");
-            infoPiloto.classList.add("pilotos");
-            infoPiloto.innerHTML = `
-            <img src="${piloto.imagen}" alt="${piloto.nombre}">
-            <h2>${piloto.nombre}</h2>
-            <p>Equipo: ${piloto.equipo}</p>
-            <p>Rol: ${piloto.rol}</p>`;
-            listaPilotos.appendChild(infoPiloto);
+            const pilotos = document.createElement("li");
+            pilotos.classList.add("pilotos");
+            pilotos.innerHTML = `
+            <img src="${piloto.imagen}" alt="${piloto.nome}">
+            <p>${piloto.nombre}</p>
+            <p>${piloto.equipo}</p>
+            `;
+            listaPilotos.appendChild(pilotos);
         });
 
-        container.appendChild(listaPilotos);
-        shadow.appendChild(style);
-        shadow.appendChild(container);
-    }
+        this.container.appendChild(listaPilotos);
+    };
+
 }
 
 customElements.define("pilotos-f1", PilotosF1);

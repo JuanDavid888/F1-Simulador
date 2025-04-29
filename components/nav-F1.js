@@ -61,10 +61,10 @@ class NavF1 extends HTMLElement {
         nav.innerHTML = `
             <div class="container">
                 <ul>
-                    <li><button class="boton-nav">Pilotos</button></li>
-                    <li><button class="boton-nav">Equipos</button></li>
-                    <li><button class="boton-nav">Circuitos</button></li>
-                    <li><button class="boton-nav">Vehículos</button></li>
+                    <li><button onclick="window.location.href='../paginas/pilotos.html'" class="boton-nav">Pilotos</button></li>
+                    <li><button onclick="window.location.href='../paginas/equipos.html'" class="boton-nav">Equipos</button></li>
+                    <li><button onclick="window.location.href='../paginas/circuitos.html'" class="boton-nav">Circuitos</button></li>
+                    <li><button onclick="window.location.href='../paginas/vehiculos.html'" class="boton-nav">Vehiculos</button></li>
                 </ul>
             </div>
         `;
@@ -77,3 +77,5 @@ class NavF1 extends HTMLElement {
 
 customElements.define("nav-f1", NavF1);
 export { NavF1 };
+
+
