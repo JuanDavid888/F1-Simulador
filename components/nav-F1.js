@@ -61,6 +61,7 @@ class NavF1 extends HTMLElement {
         nav.innerHTML = `
             <div class="container">
                 <ul>
+                    <li><button onclick="window.location.href='../paginas/home.html'" class="boton-nav">Inicio</button></li>
                     <li><button onclick="window.location.href='../paginas/pilotos.html'" class="boton-nav">Pilotos</button></li>
                     <li><button onclick="window.location.href='../paginas/equipos.html'" class="boton-nav">Equipos</button></li>
                     <li><button onclick="window.location.href='../paginas/circuitos.html'" class="boton-nav">Circuitos</button></li>
