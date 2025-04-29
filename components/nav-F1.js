@@ -75,7 +75,6 @@ class NavF1 extends HTMLElement {
         shadow.appendChild(nav);
     }
 }
-
 customElements.define("nav-f1", NavF1);
 export { NavF1 };
 

@@ -250,10 +250,7 @@ const vehiculos = [
     desgaste_neumaticos: { seco: 1.1, lluvioso: 0.6, extremo: 1.9 }
     }
     },
-    imagen: "https://example.com/imagen_del_carro.jpg", // imagen real
-    embed: "https://sketchfab.com/models/c2703044775148ba8f1b5bbfbfcd7938/embed"
-    
-    
+    imagen: "https://www.amalgamcollection.com/cdn/shop/articles/DSCF6458_1024x1024.jpg?v=1695978601"
     },
 
     {

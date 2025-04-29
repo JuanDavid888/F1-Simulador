@@ -1,2 +1,5 @@
-import '../components/piloto-card.js'
 import '../components/nav-F1.js'
+import '../components/piloto-card.js'
+import '../components/equipo-card.js'
+import '../components/circuito-card.js'
+import '../components/vehiculo-card.js'
