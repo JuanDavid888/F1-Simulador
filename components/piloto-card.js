@@ -61,7 +61,9 @@ class PilotosF1 extends HTMLElement {
             list-style: none;
         }
         
-        .detalles:hover {
+        .detalles button:hover {
+            background-color: #000;
+            color: #fff;
             transform: scale(1.1);
             transition: transform 0.2s ease-in-out;
         }
@@ -77,7 +79,7 @@ class PilotosF1 extends HTMLElement {
         }
 
         .detalles-imagen {
-            width: 20%;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -119,36 +121,40 @@ class PilotosF1 extends HTMLElement {
         this.container.appendChild(listaPilotos);
     };
 
-    renderDetails(pilotos) {
+    renderDetails() {
+        const piloto = pilotos;
+        
         this.container.innerHTML = "";
         const detallesPiloto = document.createElement("div");
         detallesPiloto.classList.add("detalles-piloto");
-
+    
         const detalles = document.createElement("ul");
         detalles.classList.add("detalles");
-
-        pilotos.forEach(piloto => {
-            const detalles = document.createElement("li");
-            detalles.classList.add("detalles");
-            detalles.innerHTML = `
+    
+        const detalleItem = document.createElement("li");
+        detalleItem.classList.add("detalles");
+        detalleItem.innerHTML = `
+            <button class="back-content">Volver</button>
             <div class="detalles-imagen">
-                <button class="back-content">Volver</button>
-                <img src="${piloto.imagen}" alt="${piloto.nome}">
+                <img src="${piloto.imagen}" alt="${piloto.nombre}">
             </div>
             <div class="detalles-info">
                 <p><strong>Nombre:</strong> ${piloto.nombre}</p>
                 <p><strong>Equipo:</strong> ${piloto.equipo}</p>
                 <p><strong>Rol:</strong> ${piloto.rol}</p>
                 <p><strong>Nacimiento:</strong> ${piloto.nacimiento}</p>
-                <p><strong>Pais:</strong> ${piloto.pais}</p>
+                <p><strong>País:</strong> ${piloto.pais}</p>
             </div>
-            `;
-            detallesPiloto.appendChild(detalles);
-        });
+        `;
+        detalles.appendChild(detalleItem);
+        detallesPiloto.appendChild(detalles);
         this.container.appendChild(detallesPiloto);
-
+    
+        const botonVolver = this.shadowRoot.querySelector(".back-content");
+        if (botonVolver) {
+            botonVolver.addEventListener("click", () => this.renderPilotos());
+        }
     }
-
 }
 
 customElements.define("pilotos-f1", PilotosF1);
