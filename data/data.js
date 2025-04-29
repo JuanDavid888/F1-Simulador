@@ -1,44 +1,203 @@
 // Lista de pilotos
 const pilotos = [
-    { id: 1, nombre: "Max Verstappen", equipo: "Red Bull Racing", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/verstappen" },
+    { 
+    id: 1, 
+    nombre: "Max Verstappen", 
+    equipo: "Red Bull Racing", 
+    rol: "Líder",
+    nacimiento: "30/09/1997",
+    pais: "Países bajos", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/verstappen"
+    },
 
-    { id: 2, nombre: "Yuki Tsunoda", equipo: "Red Bull Racing", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/tsunoda" },
+    {
+    id: 2, 
+    nombre: "Yuki Tsunoda", 
+    equipo: "Red Bull Racing", 
+    rol: "Escudero", 
+    nacimiento: "11/05/2000", 
+    pais: "Japón", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/tsunoda" 
+    },
 
-    { id: 3, nombre: "George Russell", equipo: "Mercedes-AMG Petronas", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/russell" },
+    {
+    id: 3, 
+    nombre: "George Russell", 
+    equipo: "Mercedes-AMG Petronas", 
+    rol: "Líder", 
+    nacimiento: "15/02/1998", 
+    pais: "Reino Unido", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/russell"
+    },
 
-    { id: 4, nombre: "Kimi Antonelli", equipo: "Mercedes-AMG Petronas", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/antonelli" },
+    { 
+    id: 4, 
+    nombre: "Kimi Antonelli", 
+    equipo: "Mercedes-AMG Petronas", 
+    rol: "Escudero", 
+    nacimiento: "25/08/2006",
+    pais: "Italia",
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/antonelli"
+    },
 
-    { id: 5, nombre: "Charles Leclerc", equipo: "Ferrari", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/leclerc" },
+    {
+    id: 5, 
+    nombre: "Charles Leclerc", 
+    equipo: "Ferrari", 
+    rol: "Líder",  
+    nacimiento: "16/10/1997", 
+    pais: "Monaco", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/leclerc" 
+    },
 
-    { id: 6, nombre: "Lewis Hamilton", equipo: "Ferrari", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hamilton" },
+    { 
+    id: 6, 
+    nombre: "Lewis Hamilton", 
+    equipo: "Ferrari", 
+    rol: "Escudero", 
+    nacimiento: "07/01/1985", 
+    pais: "Reino Unido", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hamilton" 
+    },
 
-    { id: 7, nombre: "Lando Norris", equipo: "McLaren", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/piastri" },
+    { 
+    id: 7, 
+    nombre: "Lando Norris", 
+    equipo: "McLaren", 
+    rol: "Líder", 
+    nacimiento: "13/11/1999", 
+    pais: "Reino Unido", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/piastri" 
+    },
 
-    { id: 8, nombre: "Oscar Piastri", equipo: "McLaren", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/norris" },
+    { 
+    id: 8, 
+    nombre: "Oscar Piastri", 
+    equipo: "McLaren", 
+    rol: "Escudero", 
+    nacimiento: "06/04/2001", 
+    pais: "Australia", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/norris" 
+    },
 
-    { id: 9, nombre: "Fernando Alonso", equipo: "Aston Martin", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/stroll" },
+    {
+    id: 9, 
+    nombre: "Fernando Alonso", 
+    equipo: "Aston Martin", 
+    rol: "Líder", 
+    nacimiento: "29/07/1981", 
+    pais: "España", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/stroll" 
+    },
 
-    { id: 10, nombre: "Lance Stroll", equipo: "Aston Martin", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/alonso" },
+    { 
+    id: 10, 
+    nombre: "Lance Stroll", 
+    equipo: "Aston Martin", 
+    rol: "Escudero", 
+    nacimiento: "29/10/1986", 
+    pais: "Canada", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/alonso" 
+    },
 
-    { id: 11, nombre: "Fernando Alonso", equipo: "Alpine", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/gasly" },
+    { 
+    id: 11, 
+    nombre: "Jack Doohan", 
+    equipo: "Alpine", 
+    rol: "Líder", 
+    nacimiento: "20/01/2003", 
+    pais: "Australia", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/gasly" 
+    },
 
-    { id: 12, nombre: "Pierre Gasly", equipo: "Alpine", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/doohan" },
+    { 
+    id: 12, 
+    nombre: "Pierre Gasly", 
+    equipo: "Alpine", 
+    rol: "Escudero", 
+    nacimiento: "07/02/1996", 
+    pais: "Francia", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/doohan" 
+    },
 
-    { id: 13, nombre: "Nico Hulkenberg", equipo: "Kick Sauber", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hulkenberg" },
+    { 
+    id: 13, 
+    nombre: "Nico Hulkenberg", 
+    equipo: "Kick Sauber", 
+    rol: "Líder",  
+    nacimiento: "19/08/1987", 
+    pais: "Alemania", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hulkenberg" 
+    },
 
-    { id: 14, nombre: "Gabriel Bortoleto", equipo: "Kick Sauber", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/bortoleto" },
+    { 
+    id: 14, 
+    nombre: "Gabriel Bortoleto", 
+    equipo: "Kick Sauber", 
+    rol: "Escudero", 
+    naciemiento: "14/10/2004", 
+    pais: "Brasil", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/bortoleto" 
+    },
 
-    { id: 15, nombre: "Esteban Ocon", equipo: "Haas", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/ocon" },
+    { 
+    id: 15, 
+    nombre: "Esteban Ocon", 
+    equipo: "Haas", 
+    rol: "Líder",  
+    nacimiento: "17/09/1996", 
+    pais: "Francia", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/ocon" 
+    },
 
-    { id: 16, nombre: "Oliver Bearman", equipo: "Haas", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/bearman" },
+    { 
+    id: 16, 
+    nombre: "Oliver Bearman", 
+    equipo: "Haas", 
+    rol: "Escudero", 
+    nacimiento: "08/05/2005", 
+    pais: "Reino Unido", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/bearman" 
+    },
 
-    { id: 17, nombre: "Liam Lawson", equipo: "Racing Bulls", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/fom-website/drivers/2025Drivers/lawson-racing-bulls" },
+    {
+    id: 17, 
+    nombre: "Liam Lawson", 
+    equipo: "Racing Bulls", 
+    rol: "Líder", 
+    nacimiento: "11/02/2002", 
+    pais: "Nueva Zelanda", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/fom-website/drivers/2025Drivers/lawson-racing-bulls" 
+    },
 
-    { id: 18, nombre: "Isack Hadjar", equipo: "Racing Bulls", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hadjar" },
+    { 
+    id: 18, 
+    nombre: "Isack Hadjar", 
+    equipo: "Racing Bulls", 
+    rol: "Escudero", 
+    nacimiento: "28/09/2004", 
+    pais: "Francia", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/hadjar" },
 
-    { id: 19, nombre: "Alexander Albon", equipo: "Williams", rol: "Líder", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/albon" },
+    { 
+    id: 19, 
+    nombre: "Alexander Albon", 
+    equipo: "Williams", 
+    rol: "Líder", 
+    nacimiento: "23/03/1996", 
+    pais: "Tailandia", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/albon" 
+    },
 
-    { id: 20, nombre: "Carlos Sainz", equipo: "Williams", rol: "Escudero", imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/sainz" }
+    { 
+    id: 20, 
+    nombre: "Carlos Sainz", 
+    equipo: "Williams", 
+    rol: "Escudero", 
+    naciemiento: "01/09/1994", 
+    pais: "España", 
+    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/sainz" 
+    }
 ]
 
 // Lista de equipos con sus pilotos
