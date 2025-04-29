@@ -46,6 +46,50 @@ class PilotosF1 extends HTMLElement {
             cursor: pointer;
         }
 
+        .detalles-piloto {
+            background: #fff;
+            justify-content: center;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+            gap: 5rem;
+            margin-top: 5rem;
+        }
+
+        .detalles {
+            width: 100%;
+            list-style: none;
+        }
+        
+        .detalles:hover {
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .detalles p {
+            margin-bottom: 0.5rem;
+        }
+
+        .detalles img {
+            width: 100%;
+            display: relative;
+            cursor: pointer;
+        }
+
+        .detalles-imagen {
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .back-content {
+            background: red;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #fff;
+        }
     `;
         container.classList.add("container");
 
@@ -65,14 +109,45 @@ class PilotosF1 extends HTMLElement {
             pilotos.classList.add("pilotos");
             pilotos.innerHTML = `
             <img src="${piloto.imagen}" alt="${piloto.nome}">
-            <p>${piloto.nombre}</p>
-            <p>${piloto.equipo}</p>
+            <p><strong>Nombre:</strong> ${piloto.nombre}</p>
+            <p><strong>Equipo:</strong> ${piloto.equipo}</p>
             `;
             listaPilotos.appendChild(pilotos);
         });
 
+        listaPilotos.addEventListener("click", () => this.renderDetails(pilotos))
         this.container.appendChild(listaPilotos);
     };
+
+    renderDetails(pilotos) {
+        this.container.innerHTML = "";
+        const detallesPiloto = document.createElement("div");
+        detallesPiloto.classList.add("detalles-piloto");
+
+        const detalles = document.createElement("ul");
+        detalles.classList.add("detalles");
+
+        pilotos.forEach(piloto => {
+            const detalles = document.createElement("li");
+            detalles.classList.add("detalles");
+            detalles.innerHTML = `
+            <div class="detalles-imagen">
+                <button class="back-content">Volver</button>
+                <img src="${piloto.imagen}" alt="${piloto.nome}">
+            </div>
+            <div class="detalles-info">
+                <p><strong>Nombre:</strong> ${piloto.nombre}</p>
+                <p><strong>Equipo:</strong> ${piloto.equipo}</p>
+                <p><strong>Rol:</strong> ${piloto.rol}</p>
+                <p><strong>Nacimiento:</strong> ${piloto.nacimiento}</p>
+                <p><strong>Pais:</strong> ${piloto.pais}</p>
+            </div>
+            `;
+            detallesPiloto.appendChild(detalles);
+        });
+        this.container.appendChild(detallesPiloto);
+
+    }
 
 }
 
