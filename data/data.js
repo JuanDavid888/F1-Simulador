@@ -203,6 +203,7 @@ const pilotos = [
 // Lista de equipos con sus pilotos
 const equipos = [
     {
+    id: 1,
     nombre: "Red Bull Racing",
     pais: "Austria",
     motor: "Honda",
@@ -210,6 +211,7 @@ const equipos = [
     imagen: "https://cdn-5.motorsport.com/images/mgl/Y99JQRbY/s8/red-bull-racing-logo-1.jpg"
     },
     {
+    id: 2,
     nombre: "Mercedes-AMG Petronas",
     pais: "Alemania",
     motor: "Mercedes",
@@ -217,6 +219,7 @@ const equipos = [
     imagen: "https://cdn-7.motorsport.com/images/mgl/0RrzmDo0/s8/mercedes-f1-logo-1.jpg"
     },
     {
+    id: 3,
     nombre: "Ferrari",
     pais: "Italia",   
     motor: "Ferrari",
@@ -224,6 +227,7 @@ const equipos = [
     imagen: "https://images1.autocasion.com/actualidad/wp-content/uploads/2015/12/Qu%C3%A9-significa-el-Logo-de-Ferrari--300x200.jpg"
     },
     {
+    id: 4,
     nombre: "McLaren",
     pais: "Inglaterra",
     motor: "McLaren",
@@ -231,6 +235,7 @@ const equipos = [
     imagen: "https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/01/23171426/mclaren-logo-2024.jpg"
     },
     {
+    id: 5,
     nombre: "Aston Martin",
     pais: "Inglaterra",
     motor: "Aston Martin",
@@ -238,6 +243,7 @@ const equipos = [
     imagen: "https://images.daznservices.com/di/library/DAZN_News/e1/b0/2022-03-11-logo-aston-martin-f1-formula-1_11gxc0mj1vntq1xetpipewcfoc.jpg?t=2021864903"
     },
     {
+    id: 6,
     nombre: "Alpine",
     pais: "Francia",
     motor: "Alpine",
@@ -245,6 +251,7 @@ const equipos = [
     imagen: "https://cdn.group.renault.com/alp/master/formula-1/homepage/alpine-F1-home-013-mobile.jpg.ximg.xsmall.jpg/114c58d502.jpg"
     },
     {
+    id: 7,
     nombre: "Kick Sauber",
     pais: "Italia",
     motor: "Alfa Romeo",
@@ -252,6 +259,7 @@ const equipos = [
     imagen: "https://pbs.twimg.com/profile_images/1838256124438421505/F6SzatG3_400x400.png"
     },
     {
+    id: 8,
     nombre: "Haas",
     pais: "Alemania",
     motor: "Haas",
@@ -259,6 +267,7 @@ const equipos = [
     imagen: "https://fanabox.com/cdn/shop/files/grosjeanhaascap4_480x480_a49953a4-ad49-470b-bd98-206744efbe97.jpg?v=1682635073&width=720"
     },
     {
+    id: 9,
     nombre: "Racing Bulls",
     pais: "Italia",
     motor: "AlphaTauri",
@@ -266,6 +275,7 @@ const equipos = [
     imagen: "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fit/watermark:Visa%20Cash%20App%20RB%20F1%20Team/width:1080/height:720/plain/https://s3-newsifier.ams3.digitaloceanspaces.com/gpblog.com/images/2025-03/815fd2a24f576b26e7a23eb3ad338cd326e2fd93.jpg@webp"
     },
     {   
+    id: 10,
     nombre: "Williams",
     pais: "Inglaterra",
     motor: "RedBull",
@@ -277,6 +287,7 @@ const equipos = [
 // Lista de circuitos con estadísticas y ganadores históricos
 const circuitos = [
     {
+    id: 1,
     nombre: "Circuito de Mónaco",
     pais: "Mónaco",
     longitud_km: 3.34,
@@ -292,6 +303,7 @@ const circuitos = [
     }, // imagen: "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2023/06/03/16857725131564.gif" (gif)
 
     {
+    id: 2,
     nombre: "Silverstone",
     pais: "Reino Unido",
     longitud_km: 5.89,
@@ -307,6 +319,7 @@ const circuitos = [
     },
 
     {
+    id: 3,
     nombre: "Circuito de Spa-Francorchamps",
     pais: "Bélgica",
     longitud_km: 7.00,
@@ -322,6 +335,7 @@ const circuitos = [
     },
 
     {
+    id: 4,
     nombre: "Circuito de Monza",
     pais: "Italia",
     longitud_km: 5.79,
@@ -337,6 +351,7 @@ const circuitos = [
     },
 
     {
+    id: 5,
     nombre: "Interlagos",
     pais: "Brasil",
     longitud_km: 4.31, 
@@ -352,6 +367,7 @@ const circuitos = [
     },
 
     {
+    id: 6,
     nombre: "Circuito de Yas Marina",
     pais: "Emiratos Árabes Unidos",
     longitud_km: 5.28,
@@ -367,6 +383,7 @@ const circuitos = [
     },
 
     {
+    id: 7,
     nombre: "Circuito de Suzuka",
     pais: "Japón",
     longitud_km: 5.81,

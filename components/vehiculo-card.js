@@ -46,6 +46,70 @@ class VehiculosF1 extends HTMLElement {
             cursor: pointer;
         }
 
+        .detalles-vehiculo {
+            width: 40%;
+            background: #fff;
+            justify-content: center;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+            gap: 5rem;
+            margin-top: 5rem;
+        }
+
+        .detalles {
+            width: 100%;
+            height: 26rem;
+            list-style: none;
+        }
+        
+        .detalles button:hover {
+            background-color: #000;
+            color: #fff;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .detalles img {
+            width: 100%;
+            display: relative;
+            cursor: pointer;
+        }
+
+        .detalles-imagen {
+            width: 100%;
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .detalles-info {
+            width: 100%;
+            margin-left: 27rem;
+            margin-top: -15rem;
+            line-height: 1.5;
+        }
+
+        .detalles-info p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detalles-info strong {
+            font-size: 1.2rem;
+        }
+
+        .back-content {
+            background: red;
+            margin-bottom: 1rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 0.5rem;
+        }
+
         @media screen and (min-width: 1200px) {
             .container {
                 width: 100%;
@@ -71,28 +135,71 @@ class VehiculosF1 extends HTMLElement {
         shadow.appendChild(style);
         shadow.appendChild(container);
         this.container = container;
-        this.renderPilotos();
+        this.renderVehiculos();
     }
 
-    renderPilotos = async () => {
+    renderVehiculos = () => {
         this.container.innerHTML = "";
         const listaVehiculos = document.createElement("ul");
         listaVehiculos.classList.add("lista-vehiculos");
 
         vehiculos.forEach(vehiculo => {
-            const vehiculos = document.createElement("li");
-            vehiculos.classList.add("vehiculos");
-            vehiculos.innerHTML = `
-            <img src="${vehiculo.imagen}" alt="${vehiculo.equipo}">
-            <p><strong>Equipo:</strong> ${vehiculo.equipo}</p>
-            <p><strong>Modelo:</strong> ${vehiculo.modelo}</p>
-
+            const vehiculoItem = document.createElement("li");
+            vehiculoItem.classList.add("vehiculos");
+            vehiculoItem.setAttribute("data-id", vehiculo.id);
+            vehiculoItem.innerHTML = `
+                <img src="${vehiculo.imagen}" alt="${vehiculo.equipo}">
+                <p><strong>Equipo:</strong> ${vehiculo.equipo}</p>
+                <p><strong>Motor:</strong> ${vehiculo.motor}</p>
             `;
-            listaVehiculos.appendChild(vehiculos);
+            listaVehiculos.appendChild(vehiculoItem);
         });
 
+        listaVehiculos.addEventListener("click", (event) => {
+            const item = event.target.closest(".vehiculos");
+            if (item) {
+                const id = item.getAttribute("data-id");
+                const vehiculoSeleccionado = vehiculos.find(v => v.id.toString() === id);
+                this.renderDetails(vehiculoSeleccionado);
+            }
+        });
         this.container.appendChild(listaVehiculos);
     };
+
+    renderDetails(vehiculo) {
+        this.container.innerHTML = "";
+    
+        const detallesVehiculo = document.createElement("div");
+        detallesVehiculo.classList.add("detalles-vehiculo");
+    
+        const detalles = document.createElement("ul");
+        detalles.classList.add("detalles");
+    
+        const detalleItem = document.createElement("li");
+        detalleItem.classList.add("detalles");
+        detalleItem.innerHTML = `
+            <button class="back-content">Volver</button>
+            <div class="detalles-imagen">
+                <img src="${vehiculo.imagen}" alt="${vehiculo.nombre}">
+            </div>
+            <div class="detalles-info">
+                <p><strong>Equipo:</strong> ${vehiculo.equipo}</p>
+                <p><strong>Motor:</strong> ${vehiculo.motor}</p>
+                <p><strong>Modelo:</strong> ${vehiculo.modelo}</p>
+                <p><strong>V-max:</strong> ${vehiculo.velocidad_maxima_kmh} km/h</p>
+                <p><strong>Aceleración 0-100:</strong> ${vehiculo.aceleracion_0_100} s</p>
+            </div>
+        `;
+    
+        detalles.appendChild(detalleItem);
+        detallesVehiculo.appendChild(detalles);
+        this.container.appendChild(detallesVehiculo);
+    
+        const botonVolver = this.shadowRoot.querySelector(".back-content");
+        if (botonVolver) {
+            botonVolver.addEventListener("click", () => this.renderVehiculos());
+        }
+    }
 
 }
 
