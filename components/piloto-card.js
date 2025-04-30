@@ -47,6 +47,7 @@ class PilotosF1 extends HTMLElement {
         }
 
         .detalles-piloto {
+            width: 40%;
             background: #fff;
             justify-content: center;
             padding: 2rem;
@@ -58,6 +59,7 @@ class PilotosF1 extends HTMLElement {
 
         .detalles {
             width: 100%;
+            height: 26rem;
             list-style: none;
         }
         
@@ -66,10 +68,6 @@ class PilotosF1 extends HTMLElement {
             color: #fff;
             transform: scale(1.1);
             transition: transform 0.2s ease-in-out;
-        }
-
-        .detalles p {
-            margin-bottom: 0.5rem;
         }
 
         .detalles img {
@@ -85,12 +83,30 @@ class PilotosF1 extends HTMLElement {
             align-items: center;
         }
 
+        .detalles-info {
+            width: 100%;
+            margin-left: 25rem;
+            margin-top: -20rem;
+            line-height: 1.5;
+        }
+
+        .detalles-info p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detalles-info strong {
+            font-size: 1.5rem;
+        }
+
         .back-content {
             background: red;
+            margin-bottom: 1rem;
             border: none;
             cursor: pointer;
             font-size: 1.5rem;
             color: #fff;
+            border-radius: 0.5rem;
         }
     `;
         container.classList.add("container");
@@ -107,24 +123,31 @@ class PilotosF1 extends HTMLElement {
         listaPilotos.classList.add("lista-pilotos");
 
         pilotos.forEach(piloto => {
-            const pilotos = document.createElement("li");
-            pilotos.classList.add("pilotos");
-            pilotos.innerHTML = `
-            <img src="${piloto.imagen}" alt="${piloto.nome}">
-            <p><strong>Nombre:</strong> ${piloto.nombre}</p>
-            <p><strong>Equipo:</strong> ${piloto.equipo}</p>
+            const pilotoItem = document.createElement("li");
+            pilotoItem.classList.add("pilotos");
+            pilotoItem.setAttribute("data-id", piloto.id);
+            pilotoItem.innerHTML = `
+                <img src="${piloto.imagen}" alt="${piloto.nombre}">
+                <p><strong>Nombre:</strong> ${piloto.nombre}</p>
+                <p><strong>Equipo:</strong> ${piloto.equipo}</p>
             `;
-            listaPilotos.appendChild(pilotos);
+            listaPilotos.appendChild(pilotoItem);
         });
 
-        listaPilotos.addEventListener("click", () => this.renderDetails(pilotos))
+        listaPilotos.addEventListener("click", (event) => {
+            const item = event.target.closest(".pilotos");
+            if (item) {
+                const id = item.getAttribute("data-id");
+                const pilotoSeleccionado = pilotos.find(p => p.id.toString() === id);
+                this.renderDetails(pilotoSeleccionado);
+            }
+        });
         this.container.appendChild(listaPilotos);
     };
 
-    renderDetails() {
-        const piloto = pilotos;
-        
+    renderDetails(piloto) {
         this.container.innerHTML = "";
+    
         const detallesPiloto = document.createElement("div");
         detallesPiloto.classList.add("detalles-piloto");
     
@@ -146,6 +169,7 @@ class PilotosF1 extends HTMLElement {
                 <p><strong>País:</strong> ${piloto.pais}</p>
             </div>
         `;
+    
         detalles.appendChild(detalleItem);
         detallesPiloto.appendChild(detalles);
         this.container.appendChild(detallesPiloto);

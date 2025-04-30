@@ -135,7 +135,7 @@ const pilotos = [
     nombre: "Gabriel Bortoleto", 
     equipo: "Kick Sauber", 
     rol: "Escudero", 
-    naciemiento: "14/10/2004", 
+    nacimiento: "14/10/2004", 
     pais: "Brasil", 
     imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/bortoleto" 
     },
@@ -194,7 +194,7 @@ const pilotos = [
     nombre: "Carlos Sainz", 
     equipo: "Williams", 
     rol: "Escudero", 
-    naciemiento: "01/09/1994", 
+    nacimiento: "01/09/1994", 
     pais: "España", 
     imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/sainz" 
     }
