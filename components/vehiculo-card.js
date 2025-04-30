@@ -47,68 +47,64 @@ class VehiculosF1 extends HTMLElement {
         }
 
         .detalles-vehiculo {
-            width: 40%;
-            background: #fff;
-            justify-content: center;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-            gap: 5rem;
-            margin-top: 5rem;
-        }
+                width: 89%;
+                height: 33rem;
+                background: #fff;
+                justify-content: center;
+                padding: 2rem;
+                gap: 5rem;
+                margin-top: 5rem;
+            }
 
-        .detalles {
-            width: 100%;
-            height: 26rem;
-            list-style: none;
-        }
-        
-        .detalles button:hover {
-            background-color: #000;
-            color: #fff;
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in-out;
-        }
+            .detalles {
+                width: 89%;
+                height: 31rem;
+                list-style: none;
+            }
+            
+            .detalles button:hover {
+                background-color: #000;
+                color: #fff;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
 
-        .detalles img {
-            width: 100%;
-            display: relative;
-            cursor: pointer;
-        }
+            .detalles img {
+                width: 120%;
+                display: flex;
+                cursor: pointer;
+            }
 
-        .detalles-imagen {
-            width: 100%;
-            margin-top: 4rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+            .detalles-imagen {
+                width: 80%;
+                display: flex;
+                align-items: center;
+            }
 
-        .detalles-info {
-            width: 100%;
-            margin-left: 27rem;
-            margin-top: -15rem;
-            line-height: 1.5;
-        }
+            .detalles-info {
+                width: 85%;
+                margin-left: 5%;
+                margin-top: 0%;
+            }
 
-        .detalles-info p {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
+            .detalles-info p {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
 
-        .detalles-info strong {
-            font-size: 1.2rem;
-        }
+            .detalles-info strong {
+                font-size: 1.1rem;
+            }
 
-        .back-content {
-            background: red;
-            margin-bottom: 1rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #fff;
-            border-radius: 0.5rem;
-        }
+            .back-content {
+                background: red;
+                margin-bottom: 2rem;
+                border: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: #fff;
+                border-radius: 0.5rem;
+            }
 
         @media screen and (min-width: 1200px) {
             .container {
@@ -128,7 +124,133 @@ class VehiculosF1 extends HTMLElement {
                 gap: 3rem;
                 margin-top: 5rem;
             }
+
+            .detalles-vehiculo {
+                width: 40%;
+                background: #fff;
+                justify-content: center;
+                padding: 2rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+                gap: 5rem;
+                margin-top: 5rem;
+            }
+
+            .detalles {
+                width: 100%;
+                height: 26rem;
+                list-style: none;
+            }
+            
+            .detalles button:hover {
+                background-color: #000;
+                color: #fff;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .detalles img {
+                width: 100%;
+                display: relative;
+                cursor: pointer;
+            }
+
+            .detalles-imagen {
+                width: 100%;
+                margin-top: 4rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .detalles-info {
+                width: 100%;
+                margin-left: 27rem;
+                margin-top: -15rem;
+                line-height: 1.5;
+            }
+
+            .detalles-info p {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .detalles-info strong {
+                font-size: 1.2rem;
+            }
+
+            .back-content {
+                background: red;
+                margin-bottom: 1rem;
+                border: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: #fff;
+                border-radius: 0.5rem;
+            }
         }   
+        
+        @media screen and (min-width: 601px) and (max-width: 1000px) {
+            .detalles-vehiculo {
+                width: 80%;
+                height: 30rem;
+                background: #fff;
+                justify-content: center;
+                padding: 1rem;
+                gap: 5rem;
+                margin-top: 5rem;
+            }
+
+            .detalles {
+                width: 95%;
+                height: 31rem;
+                list-style: none;
+            }
+            
+            .detalles button:hover {
+                background-color: #000;
+                color: #fff;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .detalles img {
+                width: 110%;
+                display: flex;
+                cursor: pointer;
+            }
+
+            .detalles-imagen {
+                width: 50%;
+                display: flex;
+                align-items: center;
+            }
+
+            .detalles-info {
+                width: 50%;
+                margin-left: 62%;
+                margin-top: -37%;
+            }
+
+            .detalles-info p {
+                font-size: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .detalles-info strong {
+                font-size: 1.5rem;
+            }
+
+            .back-content {
+                background: red;
+                margin-bottom: 3rem;
+                border: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: #fff;
+                border-radius: 0.5rem;
+            }
+        }  
     `;
         container.classList.add("container");
 

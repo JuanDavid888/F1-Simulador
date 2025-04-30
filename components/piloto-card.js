@@ -47,25 +47,17 @@ class PilotosF1 extends HTMLElement {
         }
 
         .detalles-piloto {
-            width: 100%;
-            height: 40rem;
+            width: 50%;
+            height: 30rem;
             background: #fff;
             justify-content: center;
             padding: 2rem;
-            display: flex;
-            flex-direction: column;
             gap: 5rem;
             margin-top: 5rem;
         }
 
-        .detalles-ul {
-            width: 90%;
-            height: 100%;
-            text-align: center;
-        }
-
         .detalles {
-            width: 90%;
+            width: 95%;
             height: 26rem;
             list-style: none;
         }
@@ -78,21 +70,21 @@ class PilotosF1 extends HTMLElement {
         }
 
         .detalles img {
-            width: 100%;
-            margin-top: -5rem;
-            display: relative;
+            width: 120%;
+            display: flex;
             cursor: pointer;
         }
 
         .detalles-imagen {
-            width: 100%;
+            width: 40%;
             display: flex;
-            justify-content: center;
             align-items: center;
         }
 
         .detalles-info {
-            width: 100%;
+            width: 40%;
+            margin-left: 60%;
+            margin-top: -50%;
             line-height: 1.5;
         }
 
@@ -107,6 +99,7 @@ class PilotosF1 extends HTMLElement {
 
         .back-content {
             background: red;
+            margin-bottom: 2rem;
             border: none;
             cursor: pointer;
             font-size: 1.5rem;
@@ -114,65 +107,85 @@ class PilotosF1 extends HTMLElement {
             border-radius: 0.5rem;
         }
 
-        @media screen and (max-width: 470px) {
-            .detalles-ul {
-                width: 90%;
-                height: 100%;
-                margin-left: -0.5rem;
-            }
-            
-            .detalles img {
-                margin-top: 2rem;
-            }
-
-            .back-content {
-                margin-left: -16rem;
-                margin-top: -1rem;
-            }
-        }
-
-        @media screen and (max-width: 400px) {
-            .detalles-ul {
-                width: 90%;
-                height: 100%;
-                margin-left: -0.5rem;
-            }
-            
-            .detalles img {
-                margin-top: 2rem;
-            }
-
-            .back-content {
-                margin-left: -14rem;
-                margin-top: -1rem;
-            }
-        }
-
-        @media screen and (max-width: 325px) {
-            .back-content {
-                margin-left: -11rem;
-                margin-top: -1rem;
-            }
-        }
-
-        @media screen and (min-width: 700px) {
+        @media screen and (max-width: 600px) {
             .detalles-piloto {
-                width: 100%;
-                height: 25rem;
+                width: 89%;
+                height: 33rem;
                 background: #fff;
                 justify-content: center;
                 padding: 2rem;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
                 gap: 5rem;
                 margin-top: 5rem;
             }
 
-            .detalles{
-                width: 100%;
+            .detalles {
+                width: 89%;
+                height: 31rem;
                 list-style: none;
             }
-        
+            
+            .detalles button:hover {
+                background-color: #000;
+                color: #fff;
+                transform: scale(1.1);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .detalles img {
+                width: 120%;
+                display: flex;
+                cursor: pointer;
+            }
+
+            .detalles-imagen {
+                width: 80%;
+                display: flex;
+                align-items: center;
+            }
+
+            .detalles-info {
+                width: 85%;
+                margin-left: 5%;
+                margin-top: 0%;
+            }
+
+            .detalles-info p {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .detalles-info strong {
+                font-size: 1.1rem;
+            }
+
+            .back-content {
+                background: red;
+                margin-bottom: 2rem;
+                border: none;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: #fff;
+                border-radius: 0.5rem;
+            }
+        }
+
+        @media screen and (min-width: 601px) and (max-width: 1000px) {
+            .detalles-piloto {
+                width: 80%;
+                height: 30rem;
+                background: #fff;
+                justify-content: center;
+                padding: 2rem;
+                gap: 5rem;
+                margin-top: 5rem;
+            }
+
+            .detalles {
+                width: 95%;
+                height: 31rem;
+                list-style: none;
+            }
+            
             .detalles button:hover {
                 background-color: #000;
                 color: #fff;
@@ -182,23 +195,20 @@ class PilotosF1 extends HTMLElement {
 
             .detalles img {
                 width: 100%;
-                display: relative;
+                display: flex;
                 cursor: pointer;
-                margin-top: 1rem;
             }
 
             .detalles-imagen {
-                width: 100%;
+                width: 50%;
                 display: flex;
-                justify-content: center;
                 align-items: center;
             }
 
             .detalles-info {
-                width: 100%;
-                margin-left: 25rem;
-                margin-top: -20rem;
-                line-height: 1.5;
+                width: 50%;
+                margin-left: 60%;
+                margin-top: -52%;
             }
 
             .detalles-info p {
@@ -212,33 +222,12 @@ class PilotosF1 extends HTMLElement {
 
             .back-content {
                 background: red;
-                margin-bottom: 1rem;
-                margin-left: -13rem;
+                margin-bottom: 3rem;
                 border: none;
                 cursor: pointer;
                 font-size: 1.5rem;
                 color: #fff;
                 border-radius: 0.5rem;
-            }
-
-        @media screen and (min-width: 1200px) {
-            .detalles-piloto {
-                width: 70%;
-                height: 30rem;
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-                gap: 5rem;
-                margin-top: 5rem;
-            }
-
-            .detalles-info {
-                width: 100%;
-                margin-left: 25rem;
-                margin-top: -22rem;
-                line-height: 1.5;
             }
         }
     `;
@@ -285,7 +274,7 @@ class PilotosF1 extends HTMLElement {
         detallesPiloto.classList.add("detalles-piloto");
     
         const detalles = document.createElement("ul");
-        detalles.classList.add("detalles-ul");
+        detalles.classList.add("detalles");
     
         const detalleItem = document.createElement("li");
         detalleItem.classList.add("detalles");
