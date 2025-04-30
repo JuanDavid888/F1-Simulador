@@ -23,7 +23,7 @@ class VehiculosF1 extends HTMLElement {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
             gap: 5rem;
-            margin-top: 5rem;
+            margin-top: 2.5rem;
         }
 
         .vehiculos {
@@ -113,7 +113,7 @@ class VehiculosF1 extends HTMLElement {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
                 gap: 3rem;
-                margin-top: 5rem;
+                margin-top: 2.5rem;
             }
 
             .detalles-vehiculo {

@@ -23,7 +23,7 @@ class PilotosF1 extends HTMLElement {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
             gap: 5rem;
-            margin-top: 5rem;
+            margin-top: 2.5rem;
         }
 
         .pilotos {
@@ -115,7 +115,7 @@ class PilotosF1 extends HTMLElement {
                 justify-content: center;
                 padding: 2rem;
                 gap: 5rem;
-                margin-top: 5rem;
+                margin-top: -0.5rem;
             }
 
             .detalles {
