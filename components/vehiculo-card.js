@@ -47,64 +47,55 @@ class VehiculosF1 extends HTMLElement {
         }
 
         .detalles-vehiculo {
-                width: 89%;
-                height: 33rem;
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                gap: 5rem;
-                margin-top: 5rem;
-            }
+            width: 89%;
+            height: 33rem;
+            background: #fff;
+            justify-content: center;
+            padding: 2rem;
+            gap: 5rem;
+            margin-top: 5rem;
+        }
 
-            .detalles {
-                width: 89%;
-                height: 31rem;
-                list-style: none;
-            }
+        .detalles {
+            width: 89%;
+            height: 31rem;
+            list-style: none;
+        }
             
-            .detalles button:hover {
-                background-color: #000;
-                color: #fff;
-                transform: scale(1.1);
-                transition: transform 0.2s ease-in-out;
-            }
+        .detalles button:hover {
+            background-color: #000;
+            color: #fff;
+            transform: scale(1.1);
+            transition: transform 0.2s ease-in-out;
+        }
 
-            .detalles img {
-                width: 120%;
-                display: flex;
-                cursor: pointer;
-            }
+        .detalles img {
+            width: 120%;
+            display: flex;
+            cursor: pointer;
+        }
 
-            .detalles-imagen {
-                width: 80%;
-                display: flex;
-                align-items: center;
-            }
+        .detalles-imagen {
+            width: 80%;
+            display: flex;
+            align-items: center;
+        }
 
-            .detalles-info {
-                width: 85%;
-                margin-left: 5%;
-                margin-top: 0%;
-            }
+        .detalles-info {
+            width: 85%;
+            margin-left: 5%;
+            margin-top: 0%;
+        }
 
-            .detalles-info p {
-                font-size: 1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .detalles-info strong {
-                font-size: 1.1rem;
-            }
-
-            .back-content {
-                background: red;
-                margin-bottom: 2rem;
-                border: none;
-                cursor: pointer;
-                font-size: 1.5rem;
-                color: #fff;
-                border-radius: 0.5rem;
-            }
+        .back-content {
+            background: red;
+            margin-bottom: 2rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #fff;
+            border-radius: 0.5rem;
+        }
 
         @media screen and (min-width: 1200px) {
             .container {
