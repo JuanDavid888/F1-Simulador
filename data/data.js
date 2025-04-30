@@ -207,7 +207,7 @@ const equipos = [
     nombre: "Red Bull Racing",
     pais: "Austria",
     motor: "Honda",
-    pilotos: [1, 2], // IDs de pilotos
+    pilotos: [`${pilotos[0].imagen}`, `${pilotos[1].imagen}`], // IDs de pilotos
     imagen: "https://cdn-5.motorsport.com/images/mgl/Y99JQRbY/s8/red-bull-racing-logo-1.jpg"
     },
     {
@@ -215,7 +215,7 @@ const equipos = [
     nombre: "Mercedes-AMG Petronas",
     pais: "Alemania",
     motor: "Mercedes",
-    pilotos: [3, 4],
+    pilotos: [`${pilotos[2].imagen}`, `${pilotos[3].imagen}`],
     imagen: "https://cdn-7.motorsport.com/images/mgl/0RrzmDo0/s8/mercedes-f1-logo-1.jpg"
     },
     {
@@ -223,7 +223,7 @@ const equipos = [
     nombre: "Ferrari",
     pais: "Italia",   
     motor: "Ferrari",
-    pilotos: [5, 6],
+    pilotos: [`${pilotos[4].imagen}`, `${pilotos[5].imagen}`],
     imagen: "https://images1.autocasion.com/actualidad/wp-content/uploads/2015/12/Qu%C3%A9-significa-el-Logo-de-Ferrari--300x200.jpg"
     },
     {
@@ -231,7 +231,7 @@ const equipos = [
     nombre: "McLaren",
     pais: "Inglaterra",
     motor: "McLaren",
-    pilotos: [7, 8],
+    pilotos: [`${pilotos[6].imagen}`, `${pilotos[7].imagen}`],
     imagen: "https://d3cm515ijfiu6w.cloudfront.net/wp-content/uploads/2025/01/23171426/mclaren-logo-2024.jpg"
     },
     {
@@ -239,7 +239,7 @@ const equipos = [
     nombre: "Aston Martin",
     pais: "Inglaterra",
     motor: "Aston Martin",
-    pilotos: [9, 10],
+    pilotos: [`${pilotos[8].imagen}`, `${pilotos[9].imagen}`],
     imagen: "https://images.daznservices.com/di/library/DAZN_News/e1/b0/2022-03-11-logo-aston-martin-f1-formula-1_11gxc0mj1vntq1xetpipewcfoc.jpg?t=2021864903"
     },
     {
@@ -247,7 +247,7 @@ const equipos = [
     nombre: "Alpine",
     pais: "Francia",
     motor: "Alpine",
-    pilotos: [11, 12],
+    pilotos: [`${pilotos[10].imagen}`, `${pilotos[11].imagen}`],
     imagen: "https://cdn.group.renault.com/alp/master/formula-1/homepage/alpine-F1-home-013-mobile.jpg.ximg.xsmall.jpg/114c58d502.jpg"
     },
     {
@@ -255,7 +255,7 @@ const equipos = [
     nombre: "Kick Sauber",
     pais: "Italia",
     motor: "Alfa Romeo",
-    pilotos: [13, 14],
+    pilotos: [`${pilotos[12].imagen}`, `${pilotos[13].imagen}`],
     imagen: "https://pbs.twimg.com/profile_images/1838256124438421505/F6SzatG3_400x400.png"
     },
     {
@@ -263,7 +263,7 @@ const equipos = [
     nombre: "Haas",
     pais: "Alemania",
     motor: "Haas",
-    pilotos: [15, 16],
+    pilotos: [`${pilotos[14].imagen}`, `${pilotos[15].imagen}`],
     imagen: "https://fanabox.com/cdn/shop/files/grosjeanhaascap4_480x480_a49953a4-ad49-470b-bd98-206744efbe97.jpg?v=1682635073&width=720"
     },
     {
@@ -271,7 +271,7 @@ const equipos = [
     nombre: "Racing Bulls",
     pais: "Italia",
     motor: "AlphaTauri",
-    pilotos: [17, 18],
+    pilotos: [`${pilotos[16].imagen}`, `${pilotos[17].imagen}`],
     imagen: "https://r.testifier.nl/Acbs8526SDKI/resizing_type:fit/watermark:Visa%20Cash%20App%20RB%20F1%20Team/width:1080/height:720/plain/https://s3-newsifier.ams3.digitaloceanspaces.com/gpblog.com/images/2025-03/815fd2a24f576b26e7a23eb3ad338cd326e2fd93.jpg@webp"
     },
     {   
@@ -279,7 +279,7 @@ const equipos = [
     nombre: "Williams",
     pais: "Inglaterra",
     motor: "RedBull",
-    pilotos: [19, 20],
+    pilotos: [`${pilotos[18].imagen}`, `${pilotos[19].imagen}`],
     imagen: "https://img.freepik.com/vector-premium/logotipo-w-blanco-negro-flecha-azul-sobre-fondo-negro_853558-1301.jpg"
     },
 ];

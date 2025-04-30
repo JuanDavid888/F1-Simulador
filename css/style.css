@@ -29,7 +29,7 @@ body {
 @media screen and (min-width: 1200px) {
     .img-welcome {
         width: 16rem;
-        margin-left: 10rem;
+        margin-left: 5rem;
         margin-top: 1rem;
     }
     .navegacion {
@@ -38,5 +38,6 @@ body {
         justify-content: center;
         align-items: center;
         margin-top: -6rem;
+        margin-left: 15rem;
     }
 }
