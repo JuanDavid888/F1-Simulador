@@ -1,307 +1,102 @@
-import { pilotos, equipos, circuitos, vehiculos } from '../data/data.js'
+import { pilotos } from '../data/data.js';
 
-class PilotosF1 extends HTMLElement {
+class PilotoCard extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: "open" });
-        const container = document.createElement("div");
+
+        // Estilos de card
         const style = document.createElement("style");
         style.innerHTML = `
-        .container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem 0;
-            gap: 1rem;
-        }
-
-        .lista-pilotos {
-            background: #fff;
-            justify-content: center;
-            padding: 2rem;
+        .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-            gap: 5rem;
-            margin-top: 2.5rem;
-        }
-
-        .pilotos {
-            width: 100%;
-            list-style: none;
-        }
-        
-        .pilotos:hover {
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .pilotos p {
-            margin-bottom: 0.5rem;
-        }
-
-        .pilotos img {
-            width: 100%;
-            display: relative;
-            cursor: pointer;
-        }
-
-        .detalles-piloto {
-            width: 50%;
-            height: 30rem;
-            background: #fff;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
             padding: 2rem;
-            gap: 5rem;
-            margin-top: 5rem;
+            justify-content: center;
         }
 
-        .detalles {
-            width: 95%;
-            height: 26rem;
-            list-style: none;
-        }
-        
-        .detalles button:hover {
-            background-color: #000;
-            color: #fff;
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .detalles img {
-            width: 120%;
-            display: flex;
+        .piloto-card {
+            background: linear-gradient(to right, black, #ff3737);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0px 6px 12px rgba(255, 55, 55, 0.7);
+            transition: transform 0.3s ease-in-out;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .detalles-imagen {
-            width: 40%;
-            display: flex;
-            align-items: center;
+        .piloto-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-45deg);
+            transition: 0.5s;
         }
 
-        .detalles-info {
-            width: 40%;
-            margin-left: 60%;
-            margin-top: -50%;
-            line-height: 1.5;
+        .piloto-card:hover::before {
+            left: 100%;
         }
 
-        .detalles-info p {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        .piloto-card img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease-in-out;
+            border: 3px solid red;
         }
 
-        .detalles-info strong {
+        .piloto-card:hover img {
+            transform: scale(1.2);
+        }
+
+        .piloto-card h3 {
             font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
         }
 
-        .back-content {
-            background: red;
-            margin-bottom: 2rem;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #fff;
-            border-radius: 0.5rem;
+        .piloto-card p {
+            color: #ddd;
         }
+        `;
 
-        @media screen and (max-width: 600px) {
-            .detalles-piloto {
-                width: 89%;
-                height: 33rem;
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                gap: 5rem;
-                margin-top: -0.5rem;
-            }
-
-            .detalles {
-                width: 89%;
-                height: 31rem;
-                list-style: none;
-            }
-            
-            .detalles button:hover {
-                background-color: #000;
-                color: #fff;
-                transform: scale(1.1);
-                transition: transform 0.2s ease-in-out;
-            }
-
-            .detalles img {
-                width: 120%;
-                display: flex;
-                cursor: pointer;
-            }
-
-            .detalles-imagen {
-                width: 80%;
-                display: flex;
-                align-items: center;
-            }
-
-            .detalles-info {
-                width: 85%;
-                margin-left: 5%;
-                margin-top: 0%;
-            }
-
-            .detalles-info p {
-                font-size: 1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .detalles-info strong {
-                font-size: 1.1rem;
-            }
-
-            .back-content {
-                background: red;
-                margin-bottom: 2rem;
-                border: none;
-                cursor: pointer;
-                font-size: 1.5rem;
-                color: #fff;
-                border-radius: 0.5rem;
-            }
-        }
-
-        @media screen and (min-width: 601px) and (max-width: 1000px) {
-            .detalles-piloto {
-                width: 80%;
-                height: 30rem;
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                gap: 5rem;
-                margin-top: 5rem;
-            }
-
-            .detalles {
-                width: 95%;
-                height: 31rem;
-                list-style: none;
-            }
-            
-            .detalles button:hover {
-                background-color: #000;
-                color: #fff;
-                transform: scale(1.1);
-                transition: transform 0.2s ease-in-out;
-            }
-
-            .detalles img {
-                width: 100%;
-                display: flex;
-                cursor: pointer;
-            }
-
-            .detalles-imagen {
-                width: 50%;
-                display: flex;
-                align-items: center;
-            }
-
-            .detalles-info {
-                width: 50%;
-                margin-left: 60%;
-                margin-top: -52%;
-            }
-
-            .detalles-info p {
-                font-size: 1.2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .detalles-info strong {
-                font-size: 1.5rem;
-            }
-
-            .back-content {
-                background: red;
-                margin-bottom: 3rem;
-                border: none;
-                cursor: pointer;
-                font-size: 1.5rem;
-                color: #fff;
-                border-radius: 0.5rem;
-            }
-        }
-    `;
-        container.classList.add("container");
-
-        shadow.appendChild(style);
-        shadow.appendChild(container);
-        this.container = container;
-        this.renderPilotos();
-    }
-
-    renderPilotos = () => {
-        this.container.innerHTML = "";
-        const listaPilotos = document.createElement("ul");
-        listaPilotos.classList.add("lista-pilotos");
+        const container = document.createElement("div");
+        container.classList.add("card-container");
 
         pilotos.forEach(piloto => {
-            const pilotoItem = document.createElement("li");
-            pilotoItem.classList.add("pilotos");
+            const pilotoItem = document.createElement("div");
+            pilotoItem.classList.add("piloto-card");
             pilotoItem.setAttribute("data-id", piloto.id);
             pilotoItem.innerHTML = `
                 <img src="${piloto.imagen}" alt="${piloto.nombre}">
-                <p><strong>Nombre:</strong> ${piloto.nombre}</p>
-                <p><strong>Equipo:</strong> ${piloto.equipo}</p>
+                <h3>${piloto.nombre}</h3>
+                <p>Equipo: ${piloto.equipo}</p>
             `;
-            listaPilotos.appendChild(pilotoItem);
+            container.appendChild(pilotoItem);
         });
 
-        listaPilotos.addEventListener("click", (event) => {
-            const item = event.target.closest(".pilotos");
+        shadow.appendChild(style);
+        shadow.appendChild(container);
+
+        // Evento para abrir el modal
+        container.addEventListener("click", (event) => {
+            const item = event.target.closest(".piloto-card");
             if (item) {
                 const id = item.getAttribute("data-id");
                 const pilotoSeleccionado = pilotos.find(p => p.id.toString() === id);
-                this.renderDetails(pilotoSeleccionado);
+                document.dispatchEvent(new CustomEvent("openModal", { detail: pilotoSeleccionado }));
             }
         });
-        this.container.appendChild(listaPilotos);
-    };
-
-    renderDetails(piloto) {
-        this.container.innerHTML = "";
-    
-        const detallesPiloto = document.createElement("div");
-        detallesPiloto.classList.add("detalles-piloto");
-    
-        const detalles = document.createElement("ul");
-        detalles.classList.add("detalles");
-    
-        const detalleItem = document.createElement("li");
-        detalleItem.classList.add("detalles");
-        detalleItem.innerHTML = `
-            <button class="back-content">Volver</button>
-            <div class="detalles-imagen">
-                <img src="${piloto.imagen}" alt="${piloto.nombre}">
-            </div>
-            <div class="detalles-info">
-                <p><strong>Nombre:</strong> ${piloto.nombre}</p>
-                <p><strong>Equipo:</strong> ${piloto.equipo}</p>
-                <p><strong>Rol:</strong> ${piloto.rol}</p>
-                <p><strong>Nacimiento:</strong> ${piloto.nacimiento}</p>
-                <p><strong>País:</strong> ${piloto.pais}</p>
-            </div>
-        `;
-    
-        detalles.appendChild(detalleItem);
-        detallesPiloto.appendChild(detalles);
-        this.container.appendChild(detallesPiloto);
-    
-        const botonVolver = this.shadowRoot.querySelector(".back-content");
-        if (botonVolver) {
-            botonVolver.addEventListener("click", () => this.renderPilotos());
-        }
     }
 }
 
-customElements.define("pilotos-f1", PilotosF1);
-export { PilotosF1 };
+customElements.define("piloto-card", PilotoCard);
+export { PilotoCard };
