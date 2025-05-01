@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/main.js" type="module" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equipos de Fórmula 1</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/main.js" type="module" defer></script>
 </head>
-<body>
-    <div class="container-welcome">
-        <img class="img-welcome" src="https://companieslogo.com/img/orig/FWONK.D-6358a63d.png?t=1720244491" alt="F1-inicio">
+<body class="bg-black text-gray-300 font-sans">
+
+  <!-- Encabezado -->
+  <header class="bg-gradient-to-r from-red-700 to-black text-white py-6 shadow-xl border-b-4 border-red-600">
+    <div class="container mx-auto px-6 flex justify-between items-center flex-wrap animate-fade-in">
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-wide uppercase  ">Equipos de la formula 1</h1>
+      </div>
+      <img src="https://companieslogo.com/img/orig/FWONK.D-6358a63d.png?t=1720244491" alt="F1 Logo" class="w-24 h-auto ml-4">
     </div>
-    <nav-f1 class="navegacion"></nav-f1>
-    <equipos-f1></equipos-f1>
+  </header>
+
+  <!-- Barra de navegación -->
+  <nav-f1 class="navegacion"></nav-f1>
+
+  <!-- Contenido principal -->
+  <main class="container mx-auto px-6 py-10 animate-slide-up">
+      <equipo-card></equipo-card>
+  </main>
+
 </body>
 </html>

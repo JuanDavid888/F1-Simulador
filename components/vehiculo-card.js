@@ -16,7 +16,7 @@ class VehiculoCard extends HTMLElement {
             justify-content: center;
         }
 
-        .vehiculo-card {
+        .piloto-card {
             background: linear-gradient(to right, black, #ff3737);
             border-radius: 12px;
             padding: 1rem;
@@ -28,7 +28,7 @@ class VehiculoCard extends HTMLElement {
             overflow: hidden;
         }
 
-        .vehiculo-card::before {
+        .piloto-card::before {
             content: "";
             position: absolute;
             top: 0;
@@ -40,31 +40,87 @@ class VehiculoCard extends HTMLElement {
             transition: 0.5s;
         }
 
-        .vehiculo-card:hover::before {
+        .piloto-card:hover::before {
             left: 100%;
         }
 
-        .vehiculo-card img {
+        .piloto-card img {
             width: 100%;
-            max-width: 200px;
+            max-width: 180px;
             border-radius: 50%;
             margin-bottom: 1rem;
             transition: transform 0.3s ease-in-out;
-            border: 3px solid black;
+            border: 3px solid red;
         }
 
-        .vehiculo-card:hover img {
+        .piloto-card:hover img {
             transform: scale(1.2);
         }
 
-        .vehiculo-card h3 {
+        .piloto-card h3 {
             font-size: 1.5rem;
             color: white;
             font-weight: bold;
         }
 
-        .vehiculo-card p {
+        .piloto-card p {
             color: #ddd;
+        }
+
+        /* Modal */
+        .modal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal {
+            width: 50%;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0px 4px 12px rgba(255, 55, 55, 0.6);
+        }
+
+        .modal img {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 1rem;
+        }
+
+        .modal-container p{
+            color: #000;
+        }
+
+        .modal-container.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .close-modal {
+            background: red;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .close-modal:hover {
+            background: black;
         }
         `;
 
@@ -73,12 +129,12 @@ class VehiculoCard extends HTMLElement {
 
         vehiculos.forEach(vehiculo => {
             const vehiculoItem = document.createElement("div");
-            vehiculoItem.classList.add("vehiculo-card");
+            vehiculoItem.classList.add("piloto-card");
             vehiculoItem.setAttribute("data-id", vehiculo.id);
             vehiculoItem.innerHTML = `
                 <img src="${vehiculo.imagen}" alt="${vehiculo.nombre}">
-                <h3>${vehiculo.nombre}</h3>
-                <p>Equipo: ${vehiculo.equipo}</p>
+                <h3>${vehiculo.equipo}</h3>
+                <p>Motor: ${vehiculo.motor}</p>
             `;
             container.appendChild(vehiculoItem);
         });
@@ -86,17 +142,51 @@ class VehiculoCard extends HTMLElement {
         shadow.appendChild(style);
         shadow.appendChild(container);
 
+       // Modal
+        const modalContainer = document.createElement("div");
+        modalContainer.classList.add("modal-container");
+
+        const modalContent = document.createElement("div");
+        modalContent.classList.add("modal");
+        modalContent.innerHTML = `
+            <button class="close-modal">Cerrar</button>
+            <div id="modal-content"></div>
+        `;
+
+        modalContainer.appendChild(modalContent);
+        shadow.appendChild(modalContainer);
+
         // Evento para abrir el modal
         container.addEventListener("click", (event) => {
-            const item = event.target.closest(".vehiculo-card");
+            const item = event.target.closest(".piloto-card");
             if (item) {
                 const id = item.getAttribute("data-id");
-                const vehiculoSeleccionado = vehiculos.find(p => p.id.toString() === id);
-                document.dispatchEvent(new CustomEvent("openModal", { detail: vehiculoSeleccionado }));
+                const vehiculoSeleccionado = vehiculos.find(v => v.id.toString() === id);
+                this.showModal(vehiculoSeleccionado);
             }
         });
+
+        // Evento para cerrar el modal
+        shadow.querySelector(".close-modal").addEventListener("click", () => {
+            modalContainer.classList.remove("active");
+        });
+
+        this.modalContainer = modalContainer;
+        this.modalContent = shadow.getElementById("modal-content");
     }
-}
+
+    showModal(vehiculo) {
+        this.modalContent.innerHTML = `
+            <img src="${vehiculo.imagen}" alt="${vehiculo.nombre}">
+            <p><strong>Equipo:</strong> ${vehiculo.equipo}</p>
+            <p><strong>Motor:</strong> ${vehiculo.motor}</p>
+            <p><strong>Modelo:</strong> ${vehiculo.modelo}</p>
+            <p><strong>V-max:</strong> ${vehiculo.velocidad_maxima_kmh} km/h</p>
+            <p><strong>Aceleración 0-100:</strong> ${vehiculo.aceleracion_0_100} s</p>
+        `;
+        this.modalContainer.classList.add("active");
+    }
+ }
 
 customElements.define("vehiculo-card", VehiculoCard);
 export { VehiculoCard };
