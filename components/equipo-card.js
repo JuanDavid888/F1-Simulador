@@ -123,7 +123,7 @@ class EquiposF1 extends HTMLElement {
             .lista-equipos {
                 background: #fff;
                 justify-content: center;
-                padding: 2rem;
+                padding: 4rem;
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
                 gap: 5rem;
@@ -151,7 +151,8 @@ class EquiposF1 extends HTMLElement {
             }
 
             .detalles-equipo {
-                width: 40%;
+                width: 65%;
+                height: 30rem;
                 background: #fff;
                 justify-content: center;
                 padding: 2rem;
@@ -182,28 +183,34 @@ class EquiposF1 extends HTMLElement {
                 align-items: center;
             }
 
+            .imagen-piloto1 p {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-left: 110%;
+            }
+
             .imagen-piloto1 img {
-                width: 100%;
+                width: 70%;
                 display: relative;
                 cursor: pointer;
             }
 
             .imagen-piloto2 {
                 width: 100%;
-                margin-left: 22rem;
-                margin-top: -23.75rem;
+                margin-left: 100%;
+                margin-top: -76%;
                 text-align: center;
             }
 
             .imagen-piloto2 img {
-                width: 100%;
+                width: 70%;
                 display: relative;
                 cursor: pointer;
             }
 
             .back-content {
                 background: red;
-                margin-bottom: 1rem;
+                margin-bottom: 0rem;
                 border: none;
                 cursor: pointer;
                 font-size: 1.5rem;

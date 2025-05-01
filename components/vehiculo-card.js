@@ -48,7 +48,7 @@ class VehiculosF1 extends HTMLElement {
 
         .detalles-vehiculo {
             width: 89%;
-            height: 33rem;
+            height: 30rem;
             background: #fff;
             justify-content: center;
             padding: 2rem;
@@ -109,7 +109,7 @@ class VehiculosF1 extends HTMLElement {
             .lista-vehiculos {
                 background: #fff;
                 justify-content: center;
-                padding: 2rem;
+                padding: 4rem;
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
                 gap: 3rem;
@@ -117,7 +117,7 @@ class VehiculosF1 extends HTMLElement {
             }
 
             .detalles-vehiculo {
-                width: 40%;
+                width: 60%;
                 background: #fff;
                 justify-content: center;
                 padding: 2rem;
@@ -155,19 +155,19 @@ class VehiculosF1 extends HTMLElement {
             }
 
             .detalles-info {
-                width: 100%;
-                margin-left: 27rem;
-                margin-top: -15rem;
+                width: 70%;
+                margin-left: 125%;
+                margin-top: -72%;
                 line-height: 1.5;
             }
 
             .detalles-info p {
-                font-size: 1rem;
+                font-size: 1.2rem;
                 margin-bottom: 0.5rem;
             }
 
             .detalles-info strong {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
 
             .back-content {

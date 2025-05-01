@@ -18,7 +18,7 @@ class CircuitosF1 extends HTMLElement {
         .lista-circuitos {
             background: #fff;
             justify-content: center;
-            padding: 2rem;
+            padding: 5rem;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
             gap: 3rem;
