@@ -292,7 +292,7 @@ const circuitos = [
     pais: "Mónaco",
     longitud_km: 3.34,
     vueltas: 78,
-    descripcion: "Uno de los circuitos más prestigiosos y difíciles del calendario, conocido por sus calles angostas y la falta de zonas de adelantamiento.",
+    descripcion: "Circuito prestigioso y desafiante, conocido por sus calles estrechas y pocas zonas de adelantamiento.",
     record_vuelta: { tiempo: "1:10.166", piloto: "Lewis Hamilton", año: 2019 },
     ganadores: [
     { temporada: 2021, piloto: 1 },
@@ -308,7 +308,7 @@ const circuitos = [
     pais: "Reino Unido",
     longitud_km: 5.89,
     vueltas: 52,
-    descripcion: "Uno de los circuitos más rápidos del calendario, con curvas de alta velocidad como Maggotts y Becketts.",
+    descripcion: "Circuito muy rápido, destacado por curvas veloces como Maggotts y Becketts.",
     record_vuelta: { tiempo: "1:27.097", piloto: "Max Verstappen", año: 2020 },
     ganadores: [
     { temporada: 2021, piloto: 3 },
@@ -324,7 +324,7 @@ const circuitos = [
     pais: "Bélgica",
     longitud_km: 7.00,
     vueltas: 44,
-    descripcion: "Famoso por la curva Eau Rouge y la larga recta de Kemmel, un circuito donde la potencia del motor es clave.",
+    descripcion: "Circuito icónico con la curva Eau Rouge y la recta de Kemmel, donde la potencia del motor es crucial.",
     record_vuelta: { tiempo: "1:46.286", piloto: "Valtteri Bottas", año: 2018 },
     ganadores: [
     { temporada: 2021, piloto: 1 },
@@ -340,7 +340,7 @@ const circuitos = [
     pais: "Italia",
     longitud_km: 5.79,
     vueltas: 53,
-    descripcion: "Conocido como 'El Templo de la Velocidad', Monza es el circuito más rápido del calendario con largas rectas y chicanes icónicas.",
+    descripcion: "Monza, el circuito más rápido, destaca por sus largas rectas y chicanes icónicas.",
     record_vuelta: { tiempo: "1:21.046", piloto: "Rubens Barrichello", año: 2004 },
     ganadores: [
     { temporada: 2021, piloto: 2 },
@@ -356,7 +356,7 @@ const circuitos = [
     pais: "Brasil",
     longitud_km: 4.31, 
     vueltas: 71,
-    descripcion: "Interlagos es un circuito legendario con cambios de elevación y un trazado técnico que ha sido sede de algunas de las carreras más emocionantes de la historia.",
+    descripcion: "Interlagos, circuito legendario con desniveles y trazado técnico, famoso por carreras emocionantes.",
     record_vuelta: { tiempo: "1:10.540", piloto: "Valtteri Bottas", año: 2018 },
     ganadores: [
     { temporada: 2021, piloto: 3 },
@@ -372,7 +372,7 @@ const circuitos = [
     pais: "Emiratos Árabes Unidos",
     longitud_km: 5.28,
     vueltas: 58,
-    descripcion: "Ubicado en Abu Dhabi, es famoso por ser el circuito donde se definen muchos campeonatos, con un diseño moderno y una espectacular carrera nocturna.",
+    descripcion: "Circuito moderno en Abu Dhabi, conocido por sus finales de campeonato y su carrera nocturna.",
     record_vuelta: { tiempo: "1:39.283", piloto: "Lewis Hamilton", año: 2019 },
     ganadores: [
     { temporada: 2021, piloto: 1 },
@@ -388,7 +388,7 @@ const circuitos = [
     pais: "Japón",
     longitud_km: 5.81,
     vueltas: 53,
-    descripcion: "Un circuito desafiante con un diseño en forma de ocho, famoso por sus curvas de alta velocidad como 130R y la 'S' de Senna.",
+    descripcion: "Circuito exigente en forma de ocho, famoso por curvas rápidas como 130R y la 'S' de Senna.",
     record_vuelta: { tiempo: "1:30.983", piloto: "Lewis Hamilton", año: 2019 },
     ganadores: [
     { temporada: 2021, piloto: 1 },

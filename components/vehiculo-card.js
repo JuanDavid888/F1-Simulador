@@ -16,7 +16,7 @@ class VehiculoCard extends HTMLElement {
             justify-content: center;
         }
 
-        .piloto-card {
+        .vehiculo-card {
             background: linear-gradient(to right, black, #ff3737);
             border-radius: 12px;
             padding: 1rem;
@@ -28,7 +28,7 @@ class VehiculoCard extends HTMLElement {
             overflow: hidden;
         }
 
-        .piloto-card::before {
+        .vehiculo-card::before {
             content: "";
             position: absolute;
             top: 0;
@@ -40,11 +40,11 @@ class VehiculoCard extends HTMLElement {
             transition: 0.5s;
         }
 
-        .piloto-card:hover::before {
+        .vehiculo-card:hover::before {
             left: 100%;
         }
 
-        .piloto-card img {
+        .vehiculo-card img {
             width: 100%;
             max-width: 180px;
             border-radius: 50%;
@@ -53,17 +53,17 @@ class VehiculoCard extends HTMLElement {
             border: 3px solid red;
         }
 
-        .piloto-card:hover img {
+        .vehiculo-card:hover img {
             transform: scale(1.2);
         }
 
-        .piloto-card h3 {
+        .vehiculo-card h3 {
             font-size: 1.5rem;
             color: white;
             font-weight: bold;
         }
 
-        .piloto-card p {
+        .vehiculo-card p {
             color: #ddd;
         }
 
@@ -129,7 +129,7 @@ class VehiculoCard extends HTMLElement {
 
         vehiculos.forEach(vehiculo => {
             const vehiculoItem = document.createElement("div");
-            vehiculoItem.classList.add("piloto-card");
+            vehiculoItem.classList.add("vehiculo-card");
             vehiculoItem.setAttribute("data-id", vehiculo.id);
             vehiculoItem.innerHTML = `
                 <img src="${vehiculo.imagen}" alt="${vehiculo.nombre}">
@@ -158,7 +158,7 @@ class VehiculoCard extends HTMLElement {
 
         // Evento para abrir el modal
         container.addEventListener("click", (event) => {
-            const item = event.target.closest(".piloto-card");
+            const item = event.target.closest(".vehiculo-card");
             if (item) {
                 const id = item.getAttribute("data-id");
                 const vehiculoSeleccionado = vehiculos.find(v => v.id.toString() === id);

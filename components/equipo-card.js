@@ -16,7 +16,7 @@ class EquipoCard extends HTMLElement {
             justify-content: center;
         }
 
-        .piloto-card {
+        .equipo-card {
             background: linear-gradient(to right, black, #ff3737);
             border-radius: 12px;
             padding: 1rem;
@@ -28,7 +28,7 @@ class EquipoCard extends HTMLElement {
             overflow: hidden;
         }
 
-        .piloto-card::before {
+        .equipo-card::before {
             content: "";
             position: absolute;
             top: 0;
@@ -40,11 +40,11 @@ class EquipoCard extends HTMLElement {
             transition: 0.5s;
         }
 
-        .piloto-card:hover::before {
+        .equipo-card:hover::before {
             left: 100%;
         }
 
-        .piloto-card img {
+        .equipo-card img {
             width: 100%;
             max-width: 180px;
             border-radius: 50%;
@@ -53,17 +53,17 @@ class EquipoCard extends HTMLElement {
             border: 3px solid red;
         }
 
-        .piloto-card:hover img {
+        .equipo-card:hover img {
             transform: scale(1.2);
         }
 
-        .piloto-card h3 {
+        .equpo-card h3 {
             font-size: 1.5rem;
             color: white;
             font-weight: bold;
         }
 
-        .piloto-card p {
+        .equipo-card p {
             color: #ddd;
         }
 
@@ -131,7 +131,7 @@ class EquipoCard extends HTMLElement {
 
         equipos.forEach(equipo => {
             const equipoItem = document.createElement("div");
-            equipoItem.classList.add("piloto-card");
+            equipoItem.classList.add("equipo-card");
             equipoItem.setAttribute("data-id", equipo.id);
             equipoItem.innerHTML = `
                 <img src="${equipo.imagen}" alt="${equipo.nombre}">
@@ -160,7 +160,7 @@ class EquipoCard extends HTMLElement {
 
         // Evento para abrir el modal
         container.addEventListener("click", (event) => {
-            const item = event.target.closest(".piloto-card");
+            const item = event.target.closest(".equipo-card");
             if (item) {
                 const id = item.getAttribute("data-id");
                 const equipoSeleccionado = equipos.find(e => e.id.toString() === id);

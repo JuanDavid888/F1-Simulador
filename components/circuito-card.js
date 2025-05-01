@@ -1,343 +1,191 @@
-import { pilotos, equipos, circuitos, vehiculos } from '../data/data.js'
+import { circuitos } from '../data/data.js';
 
-class CircuitosF1 extends HTMLElement {
+class CircuitoCard extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: "open" });
-        const container = document.createElement("div");
+
+        // Estilos de card
         const style = document.createElement("style");
         style.innerHTML = `
-        .container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem 0;
-            gap: 1rem;
-        }
-        .lista-circuitos {
-            background: #fff;
-            justify-content: center;
-            padding: 5rem;
+        .card-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .circuitos {
-            width: 100%;
-            list-style: none;
-        }
-        
-        .circuitos:hover {
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .circuitos p {
-            margin-bottom: 0.5rem;
-        }
-
-        .circuitos img {
-            width: 100%;
-            display: relative;
-            cursor: pointer;
-        }
-
-        .detalles-circuito {
-            width: 50%;
-            height: 30rem;
-            background: #fff;
-            justify-content: center;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
             padding: 2rem;
-            gap: 5rem;
-            margin-top: 5rem;
+            justify-content: center;
         }
 
-        .detalles {
-            width: 95%;
-            height: 26rem;
-            list-style: none;
-        }
-        
-        .detalles button:hover {
-            background-color: #000;
-            color: #fff;
-            transform: scale(1.1);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .detalles img {
-            width: 120%;
-            display: flex;
+        .pista-card {
+            background: linear-gradient(to right, black, #ff3737);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0px 6px 12px rgba(255, 55, 55, 0.7);
+            transition: transform 0.3s ease-in-out;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
-        .detalles-imagen {
-            width: 40%;
+        .pista-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-45deg);
+            transition: 0.5s;
+        }
+
+        .pista-card:hover::before {
+            left: 100%;
+        }
+
+        .pista-card img {
+            width: 100%;
+            max-width: 180px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease-in-out;
+            border: 3px solid red;
+        }
+
+        .pista-card:hover img {
+            transform: scale(1.2);
+        }
+
+        .pista-card h3 {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .pista-card p {
+            color: #ddd;
+        }
+
+        /* Modal */
+        .modal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
 
-        .detalles-info {
-            width: 40%;
-            margin-left: 60%;
-            margin-top: -32%;
-            line-height: 1.5;
+        .modal {
+            width: 50%;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0px 4px 12px rgba(255, 55, 55, 0.6);
         }
 
-        .detalles-info p {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        .modal img {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 1rem;
         }
 
-        .detalles-info strong {
-            font-size: 1.5rem;
+        .modal-container p{
+            width: 60%;
+            color: #000;
+            margin-left: 20%;
         }
 
-        .back-content {
+        .modal-container.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .close-modal {
             background: red;
-            margin-bottom: 2rem;
+            color: white;
             border: none;
+            padding: 0.5rem 1rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            font-size: 1.5rem;
-            color: #fff;
-            border-radius: 0.5rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
 
-        @media screen and (max-width: 600px) {
-            .container {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                gap: 1rem;
-            }
-
-            .lista-circuitos {
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-                gap: 5rem;
-                margin-top: -0.5rem;
-            }
-
-            .detalles-circuito {
-                width: 89%;
-                height: 33rem;
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                gap: 5rem;
-                margin-top: 3rem;
-            }
-
-            .detalles {
-                width: 89%;
-                height: 31rem;
-                list-style: none;
-            }
-            
-            .detalles button:hover {
-                background-color: #000;
-                color: #fff;
-                transform: scale(1.1);
-                transition: transform 0.2s ease-in-out;
-            }
-
-            .detalles img {
-                width: 120%;
-                display: flex;
-                cursor: pointer;
-            }
-
-            .detalles-imagen {
-                width: 80%;
-                display: flex;
-                align-items: center;
-            }
-
-            .detalles-info {
-                width: 85%;
-                margin-left: 5%;
-                margin-top: 0%;
-            }
-
-            .detalles-info p {
-                font-size: 1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .detalles-info strong {
-                font-size: 1.1rem;
-            }
-
-            .back-content {
-                background: red;
-                margin-bottom: 2rem;
-                border: none;
-                cursor: pointer;
-                font-size: 1.5rem;
-                color: #fff;
-                border-radius: 0.5rem;
-            }
+        .close-modal:hover {
+            background: black;
         }
+        `;
 
-        @media screen and (min-width: 601px) and (max-width: 1000px) {
-            .container {
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                gap: 1rem;
-            }
+        const container = document.createElement("div");
+        container.classList.add("card-container");
 
-            .lista-circuitos {
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-                gap: 5rem;
-                margin-top: 2.5rem;
-            }    
-        
-            .detalles-circuito {
-                width: 80%;
-                height: 30rem;
-                background: #fff;
-                justify-content: center;
-                padding: 2rem;
-                gap: 5rem;
-                margin-top: 5rem;
-            }
-
-            .detalles {
-                width: 95%;
-                height: 31rem;
-                list-style: none;
-            }
-            
-            .detalles button:hover {
-                background-color: #000;
-                color: #fff;
-                transform: scale(1.1);
-                transition: transform 0.2s ease-in-out;
-            }
-
-            .detalles img {
-                width: 100%;
-                display: flex;
-                cursor: pointer;
-            }
-
-            .detalles-imagen {
-                width: 50%;
-                display: flex;
-                align-items: center;
-            }
-
-            .detalles-info {
-                width: 50%;
-                margin-left: 60%;
-                margin-top:  -39%;
-            }
-
-            .detalles-info p {
-                font-size: 1.2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .detalles-info strong {
-                font-size: 1.5rem;
-            }
-
-            .back-content {
-                background: red;
-                margin-bottom: 4rem;
-                border: none;
-                cursor: pointer;
-                font-size: 1.5rem;
-                color: #fff;
-                border-radius: 0.5rem;
-            }
-        }
-    `;
-        container.classList.add("container");
+        circuitos.forEach(circuito => {
+            const circuitoItem = document.createElement("div");
+            circuitoItem.classList.add("pista-card");
+            circuitoItem.setAttribute("data-id", circuito.id);
+            circuitoItem.innerHTML = `
+                <img src="${circuito.imagen}" alt="${circuito.nombre}">
+                <h3>${circuito.nombre}</h3>
+                <p>Equipo: ${circuito.equipo}</p>
+            `;
+            container.appendChild(circuitoItem);
+        });
 
         shadow.appendChild(style);
         shadow.appendChild(container);
-        this.container = container;
-        this.renderCircuitos();
-    }
 
-    renderCircuitos = () => {
-        this.container.innerHTML = "";
-        const listaCircuitos = document.createElement("ul");
-        listaCircuitos.classList.add("lista-circuitos");
+       // Modal
+        const modalContainer = document.createElement("div");
+        modalContainer.classList.add("modal-container");
 
-        circuitos.forEach(pista => {
-            const circuitoItem = document.createElement("li");
-            circuitoItem.classList.add("circuitos");
-            circuitoItem.setAttribute("data-id", pista.id);
-            circuitoItem.innerHTML = `
-                <img src="${pista.imagen}" alt="${pista.nombre}">
-                <p><strong>Nombre:</strong> ${pista.nombre}</p>
-                <p><strong>Pais:</strong> ${pista.pais}</p>
-            `;
-            listaCircuitos.appendChild(circuitoItem);
-        });
+        const modalContent = document.createElement("div");
+        modalContent.classList.add("modal");
+        modalContent.innerHTML = `
+            <button class="close-modal">Cerrar</button>
+            <div id="modal-content"></div>
+        `;
 
-        listaCircuitos.addEventListener("click", (event) => {
-            const item = event.target.closest(".circuitos");
+        modalContainer.appendChild(modalContent);
+        shadow.appendChild(modalContainer);
+
+        // Evento para abrir el modal
+        container.addEventListener("click", (event) => {
+            const item = event.target.closest(".pista-card");
             if (item) {
                 const id = item.getAttribute("data-id");
                 const circuitoSeleccionado = circuitos.find(c => c.id.toString() === id);
-                this.renderDetails(circuitoSeleccionado);
+                this.showModal(circuitoSeleccionado);
             }
         });
-        this.container.appendChild(listaCircuitos);
-    };
 
-    renderDetails(circuitos) {
-        this.container.innerHTML = "";
-    
-        const detallesCircuito = document.createElement("div");
-        detallesCircuito.classList.add("detalles-circuito");
-    
-        const detalles = document.createElement("ul");
-        detalles.classList.add("detalles");
-    
-        const detalleItem = document.createElement("li");
-        detalleItem.classList.add("detalles");
-        detalleItem.innerHTML = `
-            <button class="back-content">Volver</button>
-            <div class="detalles-imagen">
-                <img src="${circuitos.imagen}" alt="${circuitos.nombre}">
-            </div>
-            <div class="detalles-info">
-                <p><strong>longitud:</strong> ${circuitos.longitud_km}</p>
-                <p><strong>Vueltas:</strong> ${circuitos.vueltas}</p>
-                <p><strong>Descripción:</strong> ${circuitos.descripcion}</p>
-            </div>
-        `;
-    
-        detalles.appendChild(detalleItem);
-        detallesCircuito.appendChild(detalles);
-        this.container.appendChild(detallesCircuito);
-    
-        const botonVolver = this.shadowRoot.querySelector(".back-content");
-        if (botonVolver) {
-            botonVolver.addEventListener("click", () => this.renderCircuitos());
-        }
+        // Evento para cerrar el modal
+        shadow.querySelector(".close-modal").addEventListener("click", () => {
+            modalContainer.classList.remove("active");
+        });
+
+        this.modalContainer = modalContainer;
+        this.modalContent = shadow.getElementById("modal-content");
     }
 
+    showModal(circuito) {
+        this.modalContent.innerHTML = `
+            <img src="${circuito.imagen}" alt="${circuito.nombre}">
+            <p><strong>Longitud:</strong> ${circuito.longitud_km} km</p>
+            <p><strong>Vueltas:</strong> ${circuito.vueltas}</p>
+            <p><strong>Descripción:</strong> ${circuito.descripcion}</p>
+        `;
+        this.modalContainer.classList.add("active");
+    }
 }
 
-customElements.define("circuitos-f1", CircuitosF1);
-export { CircuitosF1 };
+customElements.define("circuito-card", CircuitoCard);
+export { CircuitoCard };
