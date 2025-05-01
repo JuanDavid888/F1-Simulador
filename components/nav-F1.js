@@ -7,11 +7,8 @@ class NavF1 extends HTMLElement {
         style.innerHTML = `
         .nav-container {
             display: flex;
-            justify-content: center;
             align-items: center;
             width: 100%;
-  
-
         }
 
         .nav-f1 {
@@ -19,7 +16,6 @@ class NavF1 extends HTMLElement {
             flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
-       
         }
 
         ul {
@@ -28,7 +24,7 @@ class NavF1 extends HTMLElement {
             justify-content: center;
             align-items: center;
             list-style: none;
-            padding: 0;
+            padding: 1rem;
             margin: 0;
         }
         
