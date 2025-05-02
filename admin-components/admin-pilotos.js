@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <input id="rol" type="text" placeholder="Rol ('líder' o 'escudero')" required>
             <input id="nacimiento" type="date" required>
             <input id="pais" type="text" placeholder="País" required>
-            <input id="imagen" type="text" placeholder="URL de imagen" required>
+            <input id="imagen" type="text" placeholder="URL de la imagen" required>
             <button type="submit">Agregar</button>
           </form>
         </div>

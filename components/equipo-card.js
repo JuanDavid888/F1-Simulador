@@ -185,6 +185,23 @@ class EquipoCard extends HTMLElement {
         `;
         this.modalContainer.classList.add("active");
     }
+
+    updateEquipos(nuevaLista) {
+        const container = this.shadowRoot.querySelector(".card-container");
+        container.innerHTML = ""; // Limpia la vista anterior
+
+        nuevaLista.forEach(equipo => {
+            const equipoItem = document.createElement("div");
+            equipoItem.classList.add("equipo-card");
+            equipoItem.setAttribute("data-id", equipo.id);
+            equipoItem.innerHTML = `
+                <img src="${equipo.imagen}" alt="${equipo.nombre}">
+                <h3>${equipo.nombre}</h3>
+                <p>País: ${equipo.pais}</p>
+            `;
+            container.appendChild(equipoItem);
+        });
+    }
 }
 
 customElements.define("equipo-card", EquipoCard);

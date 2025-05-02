@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <input id="modelo" type="text" placeholder="Modelo" required>
             <input id="velocidadMax" type="text" placeholder="Velocidad máxima (km/h)" required>
             <input id="aceleracion" type="text" placeholder="Aceleración 0-100 (s)" required>
-            <input id="imagen" type="text" placeholder="URL de imagen" required>
+            <input id="imagen" type="text" placeholder="URL de la imagen" required>
             <button type="submit">Agregar</button>
           </form>
         </div>
