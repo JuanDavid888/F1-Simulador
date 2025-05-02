@@ -135,7 +135,7 @@ class CircuitoCard extends HTMLElement {
             circuitoItem.innerHTML = `
                 <img src="${circuito.imagen}" alt="${circuito.nombre}">
                 <h3>${circuito.nombre}</h3>
-                <p>Equipo: ${circuito.equipo}</p>
+                <p>País: ${circuito.pais}</p>
             `;
             container.appendChild(circuitoItem);
         });
@@ -185,7 +185,24 @@ class CircuitoCard extends HTMLElement {
         `;
         this.modalContainer.classList.add("active");
     }
+
+    updateCircuitos(nuevaLista) {
+        const container = this.shadowRoot.querySelector(".card-container");
+        container.innerHTML = ""; // Limpia la vista anterior
+
+        nuevaLista.forEach(circuito => {
+            const circuitoItem = document.createElement("div");
+            circuitoItem.classList.add("pista-card");
+            circuitoItem.setAttribute("data-id", circuito.id);
+            circuitoItem.innerHTML = `
+                <img src="${circuito.imagen}" alt="${circuito.nombre}">
+                <h3>${circuito.nombre}</h3>
+                <p>País: ${circuito.pais}</p>
+            `;
+            container.appendChild(circuitoItem);
+        });
+    }
 }
 
-customElements.define("circuito-card", CircuitoCard);
+customElements.define("pista-card", CircuitoCard);
 export { CircuitoCard };

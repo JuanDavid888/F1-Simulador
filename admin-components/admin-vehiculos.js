@@ -28,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <input id="equipo" type="text" placeholder="Equipo" required>
             <input id="motor" type="text" placeholder="Motor" required>
             <input id="modelo" type="text" placeholder="Modelo" required>
-            <input id="velocidadMax" type="text" placeholder="Velocidad máxima (km/h)" required>
-            <input id="aceleracion" type="text" placeholder="Aceleración 0-100 (s)" required>
+            <input id="velocidadMax" type="number" step="any" placeholder="Velocidad máxima (km/h)" required>
+            <input id="aceleracion" type="number" step="any" placeholder="Aceleración 0-100 (s)" required>
             <input id="imagen" type="text" placeholder="URL de la imagen" required>
             <button type="submit">Agregar</button>
           </form>
