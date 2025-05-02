@@ -5,20 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - Pilotos de F1</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="../admin/pilotos-admin.js" defer></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../admin-components/admin-home.js" type="module" defer></script>
+  <script src="../js/main.js" type="module" defer></script>
 </head>
 <body class="bg-black text-gray-300 font-sans">
 
+  <!-- Encabezado -->
   <header class="bg-gradient-to-r from-red-700 to-black text-white py-6 shadow-xl border-b-4 border-red-600">
     <div class="container mx-auto px-6 flex justify-between items-center flex-wrap animate-fade-in">
-      <h1 class="text-2xl font-extrabold tracking-wide uppercase">Panel de Admin F1</h1>
+      <div>
+        <h1 class="text-2xl font-extrabold tracking-wide uppercase  ">Pilotos de la fórmula 1</h1>
+      </div>
+      <img src="https://companieslogo.com/img/orig/FWONK.D-6358a63d.png?t=1720244491" alt="F1 Logo" class="w-24 h-auto ml-4">
+      <button id="menuBtn" class="absolute top-7 right-5 bg-transparent text-white text-2xl hover:text-gray-400">
+        🔧
+      </button>
     </div>
   </header>
 
-  <main class="container mx-auto px-6 py-10">
-    <section id="pilotos-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    
-    </section>
+  <!-- Barra de navegación -->
+  <nav-admin-f1 class="navegacion"></nav-admin-f1>
+
+  <div id="menuOptions" class="hidden absolute top-12  p-3 rounded-lg shadow-xl">
+    <button class="crud-option text-green-400 block hover:text-green-300">✅ Agregar</button>
+    <button class="crud-option text-yellow-400 block mt-2 hover:text-yellow-300">✏️ Editar</button>
+    <button class="crud-option text-red-400 block mt-2 hover:text-red-300">❌ Eliminar</button>
+    <button class="crud-option text-blue-400 block mt-2 hover:text-blue-300">🔄 Actualizar</button>
+  </div>
+
+  <!-- Menú desplegable bien ajustado -->
+  <div id="menuOptions" class="hidden absolute top-12 right-6 bg-black p-3 rounded-lg shadow-xl border border-red-600">
+    <button class="crud-option text-green-400 block hover:text-green-300">✅ Agregar</button>
+    <button class="crud-option text-yellow-400 block mt-2 hover:text-yellow-300">✏️ Editar</button>
+    <button class="crud-option text-red-400 block mt-2 hover:text-red-300">❌ Eliminar</button>
+    <button class="crud-option text-blue-400 block mt-2 hover:text-blue-300">🔄 Actualizar</button>
+  </div>
+
+  <!-- Contenido principal -->
+  <main class="container mx-auto px-6 py-10 animate-slide-up">
+      <piloto-card></piloto-card>
   </main>
 
 </body>

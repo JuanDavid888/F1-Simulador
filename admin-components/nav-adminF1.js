@@ -5,23 +5,17 @@ class NavAdminF1 extends HTMLElement {
 
         const style = document.createElement("style");
         style.innerHTML = `
-        :host {
-            display: block;
-            width: 100%;
-        }
-
         .nav-container {
             display: flex;
             align-items: center;
             width: 100%;
         }
 
-        .nav-f1 {
+        .nav-admin-f1 {
             display: flex;
+            flex-wrap: nowrap;
             justify-content: center;
             align-items: center;
-            padding: 10px;
-        
         }
 
         ul {
@@ -30,7 +24,7 @@ class NavAdminF1 extends HTMLElement {
             justify-content: center;
             align-items: center;
             list-style: none;
-            padding: 0.5rem;
+            padding: 1rem;
             margin: 0;
         }
         
@@ -46,7 +40,6 @@ class NavAdminF1 extends HTMLElement {
             transition: all 0.3s ease-in-out;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
-            cursor: pointer;
         }
 
         .boton-nav:hover {
@@ -70,9 +63,8 @@ class NavAdminF1 extends HTMLElement {
         }
         `;
 
-   
         const nav = document.createElement("nav");
-        nav.classList.add("nav-f1");
+        nav.classList.add("nav-admin-f1");
         nav.innerHTML = `
             <div class="nav-container">
                 <ul>
