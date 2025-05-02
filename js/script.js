@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (user) {
       localStorage.setItem("loggedUser", JSON.stringify(user));
 
-      alert(`Bienvenido ${user.role === "admin" ? "administrador" : "usuario"} ${user.username}`);
+      alert(`Bienvenido ${user.role === "admin" ? "admin" : "usuario"} ${user.username}`);
 
       // Redirección según el rol que quiera elegir el usuario
       if (user.role === "admin") {
-        window.location.href = "../paginas-admin/home-admin.html";
+        window.location.href = "../paginas2/home-admin.html";
       } 
       else if (user.role === "user") { 
         window.location.href = "../paginas/home.html";
@@ -72,5 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       message.textContent = "Credenciales incorrectas.";
     }
+    console.log(localStorage.getItem("loggedUser"));
+
   });  
 });
