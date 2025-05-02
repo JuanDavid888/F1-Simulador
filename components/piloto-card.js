@@ -186,6 +186,23 @@ class PilotoCard extends HTMLElement {
         `;
         this.modalContainer.classList.add("active");
     }
+
+    updatePilotos(nuevaLista) {
+        const container = this.shadowRoot.querySelector(".card-container");
+        container.innerHTML = ""; // Limpia la vista anterior
+
+        nuevaLista.forEach(piloto => {
+            const pilotoItem = document.createElement("div");
+            pilotoItem.classList.add("piloto-card");
+            pilotoItem.setAttribute("data-id", piloto.id);
+            pilotoItem.innerHTML = `
+                <img src="${piloto.imagen}" alt="${piloto.nombre}">
+                <h3>${piloto.nombre}</h3>
+                <p>Equipo: ${piloto.equipo}</p>
+            `;
+            container.appendChild(pilotoItem);
+        });
+    }
 }
 
 customElements.define("piloto-card", PilotoCard);
