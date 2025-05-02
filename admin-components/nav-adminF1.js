@@ -50,7 +50,7 @@ class NavAdminF1 extends HTMLElement {
         }
 
         @media screen and (max-width: 700px) {
-            .nav-f1 {
+            .nav-admin-f1 {
                 flex-wrap: nowrap;
                 overflow-x: auto;
             }
