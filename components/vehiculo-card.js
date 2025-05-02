@@ -186,7 +186,24 @@ class VehiculoCard extends HTMLElement {
         `;
         this.modalContainer.classList.add("active");
     }
- }
+
+    updateVehiculos(nuevaLista) {
+        const container = this.shadowRoot.querySelector(".card-container");
+        container.innerHTML = ""; // Limpia la vista anterior
+
+        nuevaLista.forEach(vehiculo => {
+            const vehiculoItem = document.createElement("div");
+            vehiculoItem.classList.add("vehiculo-card");
+            vehiculoItem.setAttribute("data-id", vehiculo.id);
+            vehiculoItem.innerHTML = `
+                <img src="${vehiculo.imagen}" alt="${vehiculo.equipo}">
+                <h3>${vehiculo.equipo}</h3>
+                <p>Motor: ${vehiculo.motor}</p>
+            `;
+            container.appendChild(vehiculoItem);
+        });
+    }
+}
 
 customElements.define("vehiculo-card", VehiculoCard);
 export { VehiculoCard };
