@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.getElementById("menuBtn");
-    const menuOptions = document.getElementById("menuOptions");
+    const menuBtn = document.getElementById("menuBtn-vehiculos");
+    const menuOptions = document.getElementById("menuOptions-vehiculos");
   
     // Verificación de existencia de elementos
     if (!menuBtn || !menuOptions) {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
     if (addButton) {
       addButton.addEventListener("click", () => {
-        openModal("Agregar nuevo elemento");
+        openModal("Agregar nuevo vehiculo");
       });
     }
   
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function openModal(action) {
     alert(`Acción seleccionada: ${action}`);
   }
-  
 
   function confirmDelete() {
     const confirmation = confirm("¿Seguro que deseas eliminar este elemento?");
