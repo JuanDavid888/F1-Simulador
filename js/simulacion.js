@@ -1,17 +1,16 @@
-   // Datos de los pilotos
-   const drivers = [
-    { id: 1, name: "Lewis Hamilton", team: "Mercedes" },
-    { id: 2, name: "Max Verstappen", team: "Red Bull" },
-    { id: 3, name: "Charles Leclerc", team: "Ferrari" },
-    { id: 4, name: "Lando Norris", team: "McLaren" },
-    { id: 5, name: "Carlos Sainz", team: "Ferrari" },
-    { id: 6, name: "Sergio Pérez", team: "Red Bull" },
-    { id: 7, name: "George Russell", team: "Mercedes" },
-    { id: 8, name: "Fernando Alonso", team: "Aston Martin" },
-    { id: 9, name: "Oscar Piastri", team: "McLaren" },
-    { id: 10, name: "Pierre Gasly", team: "Alpine" },
-    { id: 11, name: "Lance Stroll", team: "Aston Martin" },
-    { id: 12, name: "Esteban Ocon", team: "Alpine" }
+const drivers = [
+    { id: 1, name: "Lewis Hamilton", team: "Mercedes", color: "#00D2BE" },
+    { id: 2, name: "Max Verstappen", team: "Red Bull", color: "#0600EF" },
+    { id: 3, name: "Charles Leclerc", team: "Ferrari", color: "#DC0000" },
+    { id: 4, name: "Lando Norris", team: "McLaren", color: "#FF8700" },
+    { id: 5, name: "Carlos Sainz", team: "Ferrari", color: "#DC0000" },
+    { id: 6, name: "Sergio Pérez", team: "Red Bull", color: "#0600EF" },
+    { id: 7, name: "George Russell", team: "Mercedes", color: "#00D2BE" },
+    { id: 8, name: "Fernando Alonso", team: "Aston Martin", color: "#006F62" },
+    { id: 9, name: "Oscar Piastri", team: "McLaren", color: "#FF8700" },
+    { id: 10, name: "Pierre Gasly", team: "Alpine", color: "#0090FF" },
+    { id: 11, name: "Lance Stroll", team: "Aston Martin", color: "#006F62" },
+    { id: 12, name: "Esteban Ocon", team: "Alpine", color: "#0090FF" }
 ];
 
 // Datos de los circuitos
@@ -63,10 +62,21 @@ const circuits = {
     }
 };
 
+// Imágenes de coches F1 por equipo
+const carImages = {
+    "Mercedes": "https://www.formula1.com/content/dam/fom-website/teams/2023/mercedes.png.transform/6col/image.png",
+    "Red Bull": "https://www.formula1.com/content/dam/fom-website/teams/2023/red-bull-racing.png.transform/6col/image.png",
+    "Ferrari": "https://www.formula1.com/content/dam/fom-website/teams/2023/ferrari.png.transform/6col/image.png",
+    "McLaren": "https://www.formula1.com/content/dam/fom-website/teams/2023/mclaren.png.transform/6col/image.png",
+    "Aston Martin": "https://www.formula1.com/content/dam/fom-website/teams/2023/aston-martin.png.transform/6col/image.png",
+    "Alpine": "https://www.formula1.com/content/dam/fom-website/teams/2023/alpine.png.transform/6col/image.png"
+};
+
 // Variables globales
 let currentWeather = null;
 let currentResults = [];
 let comparisonChart = null;
+let visualSimulationRunning = false;
 
 // Elementos DOM
 const circuitSelect = document.getElementById('circuitSelect');
@@ -89,6 +99,26 @@ const historyDetailCard = document.getElementById('historyDetailCard');
 const historyDetail = document.getElementById('historyDetail');
 const comparisonCircuit = document.getElementById('comparisonCircuit');
 const noComparisonData = document.getElementById('noComparisonData');
+const startVisualSimulation = document.getElementById('startVisualSimulation');
+const visualCircuitName = document.getElementById('visualCircuitName');
+const visualSky = document.getElementById('visualSky');
+const visualRain = document.getElementById('visualRain');
+const visualLightning = document.getElementById('visualLightning');
+const visualGrass = document.getElementById('visualGrass');
+const driverInfo = document.getElementById('driverInfo');
+const visualSimulationInfo = document.getElementById('visualSimulationInfo');
+const raceModal = document.getElementById('raceModal');
+const raceCircuitName = document.getElementById('raceCircuitName');
+const modalSky = document.getElementById('modalSky');
+const modalRain = document.getElementById('modalRain');
+const modalLightning = document.getElementById('modalLightning');
+const modalGrass = document.getElementById('modalGrass');
+const playButtonContainer = document.getElementById('playButtonContainer');
+const racePlayButton = document.getElementById('racePlayButton');
+const winnerAnnouncement = document.getElementById('winnerAnnouncement');
+const winnerName = document.getElementById('winnerName');
+const closeRaceButton = document.getElementById('closeRaceButton');
+const raceRoad = document.getElementById('raceRoad');
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
@@ -102,6 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
     fuelConfig.addEventListener('input', updateFuelValue);
     runSimulationBtn.addEventListener('click', runSimulation);
     comparisonCircuit.addEventListener('change', updateComparisonChart);
+    startVisualSimulation.addEventListener('click', startVisualRaceSimulation);
+    
+    // Event listeners para el modal de carrera
+    racePlayButton.addEventListener('click', startRace);
+    closeRaceButton.addEventListener('click', closeRaceModal);
     
     // Inicializar valor de combustible
     updateFuelValue();
@@ -225,6 +260,7 @@ function runSimulation() {
         return {
             driver: driver.name,
             team: driver.team,
+            color: driver.color,
             lapTime: lapTime,
             formattedTime: formattedTime
         };
@@ -245,14 +281,8 @@ function runSimulation() {
         }
     });
     
-    // Mostrar resultados
-    displayResults();
-    
-    // Guardar en historial
-    saveToHistory();
-    
-    // Actualizar gráfico de comparación
-    updateComparisonChart();
+    // Abrir el modal de carrera
+    openRaceModal();
 }
 
 // Mostrar resultados en la tabla
@@ -511,6 +541,122 @@ function updateComparisonChart() {
             }
         });
     }
+}
+
+// Funciones para el modal de carrera
+function openRaceModal() {
+    // Configurar el circuito y clima
+    const selectedCircuit = circuits[circuitSelect.value];
+    raceCircuitName.textContent = selectedCircuit.name;
+    
+    // Configurar clima visual
+    modalSky.className = 'sky';
+    modalSky.classList.add(currentWeather);
+    modalRain.style.display = currentWeather === 'rainy' || currentWeather === 'extreme' ? 'block' : 'none';
+    modalGrass.className = 'grass';
+    
+    if (currentWeather === 'rainy' || currentWeather === 'extreme') {
+        modalGrass.classList.add('wet');
+    }
+    
+    // Efectos especiales para clima extremo
+    if (currentWeather === 'extreme') {
+        modalLightning.style.display = 'block';
+        
+        // Animación de relámpagos
+        const flashLightning = () => {
+            modalLightning.style.opacity = 1;
+            setTimeout(() => {
+                modalLightning.style.opacity = 0;
+            }, 100);
+            
+            setTimeout(flashLightning, 3000 + Math.random() * 5000);
+        };
+        
+        flashLightning();
+    } else {
+        modalLightning.style.display = 'none';
+    }
+    
+    // Limpiar coches anteriores
+    const existingCars = raceRoad.querySelectorAll('.race-car');
+    existingCars.forEach(car => car.remove());
+    
+    // Mostrar el modal
+    raceModal.style.display = 'block';
+    playButtonContainer.style.display = 'block';
+    winnerAnnouncement.style.display = 'none';
+}
+
+// Iniciar la carrera
+function startRace() {
+    // Ocultar botón de play
+    playButtonContainer.style.display = 'none';
+    
+    // Seleccionar los dos mejores pilotos para la carrera
+    const firstDriver = currentResults[0];
+    const secondDriver = currentResults[1];
+    
+    // Crear los coches
+    const firstCar = document.createElement('img');
+    firstCar.className = 'race-car first';
+    firstCar.src = carImages[firstDriver.team] || 'https://www.formula1.com/content/dam/fom-website/teams/2023/ferrari.png.transform/6col/image.png';
+    firstCar.alt = firstDriver.driver;
+    
+    const secondCar = document.createElement('img');
+    secondCar.className = 'race-car second';
+    secondCar.src = carImages[secondDriver.team] || 'https://www.formula1.com/content/dam/fom-website/teams/2023/mercedes.png.transform/6col/image.png';
+    secondCar.alt = secondDriver.driver;
+    
+    // Añadir coches a la carretera
+    raceRoad.appendChild(firstCar);
+    raceRoad.appendChild(secondCar);
+    
+    // Animar entrada de coches
+    firstCar.style.animation = 'raceStart 1s forwards';
+    secondCar.style.animation = 'raceStart 1s forwards';
+    
+    // Esperar a que los coches entren en pantalla
+    setTimeout(() => {
+        // Calcular duración de la carrera basada en los tiempos de vuelta
+        const baseRaceDuration = 5; // segundos
+        const firstCarDuration = baseRaceDuration;
+        const secondCarDuration = baseRaceDuration * (secondDriver.lapTime / firstDriver.lapTime);
+        
+        // Iniciar la carrera
+        firstCar.style.animation = `raceDrive ${firstCarDuration}s forwards`;
+        secondCar.style.animation = `raceDrive ${secondCarDuration}s forwards`;
+        
+        // Mostrar el ganador después de que termine la carrera
+        setTimeout(() => {
+            winnerName.textContent = firstDriver.driver;
+            winnerAnnouncement.style.display = 'flex';
+        }, firstCarDuration * 1000 + 500);
+    }, 1000);
+}
+
+// Cerrar el modal de carrera
+function closeRaceModal() {
+    raceModal.style.display = 'none';
+    
+    // Mostrar resultados en la tabla
+    displayResults();
+    
+    // Guardar en historial
+    saveToHistory();
+    
+    // Actualizar gráfico de comparación
+    updateComparisonChart();
+}
+
+// Iniciar simulación visual
+function startVisualRaceSimulation() {
+    if (currentResults.length === 0) {
+        alert('Primero debes ejecutar una simulación en la pestaña "Simulación" para obtener resultados.');
+        return;
+    }
+    
+    openRaceModal();
 }
 
 // Funciones auxiliares
