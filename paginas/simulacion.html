@@ -6,29 +6,205 @@
   <title>Simulación de carreras</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/simulacion.css">
   <script src="../js/main.js" type="module" defer></script>
+  <script src="../js/simulacion.js" type="module" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-black text-gray-300 font-sans">
-
-  <!-- Encabezado -->
-  <header class="bg-gradient-to-r from-red-700 to-black text-white py-6 shadow-xl border-b-4 border-red-600">
-    <div class="container mx-auto px-6 flex justify-between items-center flex-wrap animate-fade-in">
-      <div>
-        <h1 class="text-2xl font-extrabold tracking-wide uppercase  ">
-            Simulación de carreras
-        </h1>
-      </div>
-      <img src="https://companieslogo.com/img/orig/FWONK.D-6358a63d.png?t=1720244491" alt="F1 Logo" class="w-24 h-auto ml-4">
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-flag-checkered"></i> F1 Simulador de Clasificación
+        </a>
     </div>
-  </header>
+</nav>
 
-  <!-- Barra de navegación -->
-  <nav-f1 class="navegacion"></nav-f1>
+<div class="container mt-4">
+    <ul class="nav nav-tabs" id="mainTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="simulation-tab" data-bs-toggle="tab" data-bs-target="#simulation" type="button" role="tab" aria-controls="simulation" aria-selected="true">Simulación</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Historial</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="comparison-tab" data-bs-toggle="tab" data-bs-target="#comparison" type="button" role="tab" aria-controls="comparison" aria-selected="false">Comparación</button>
+        </li>
+    </ul>
+    
+    <div class="tab-content" id="mainTabContent">
+        <!-- Pestaña de Simulación -->
+        <div class="tab-pane fade show active" id="simulation" role="tabpanel" aria-labelledby="simulation-tab">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-map-marker-alt"></i> Selección de Circuito
+                        </div>
+                        <div class="card-body">
+                            <select id="circuitSelect" class="form-select mb-3">
+                                <option value="monza">Monza - Italia</option>
+                                <option value="monaco">Mónaco - Monte Carlo</option>
+                                <option value="silverstone">Silverstone - Reino Unido</option>
+                                <option value="spa">Spa-Francorchamps - Bélgica</option>
+                                <option value="suzuka">Suzuka - Japón</option>
+                            </select>
+                            <div id="circuitImage" class="circuit-image"></div>
+                            <div id="circuitInfo" class="small text-muted"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-cloud-sun-rain"></i> Condiciones Climáticas
+                        </div>
+                        <div class="card-body">
+                            <div id="weatherInfo">
+                                <span id="weatherIcon" class="weather-icon"></span>
+                                <span id="weatherText" class="fs-5"></span>
+                            </div>
+                            <button id="randomWeatherBtn" class="btn btn-primary w-100">
+                                <i class="fas fa-random"></i> Generar Clima Aleatorio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-cogs"></i> Configuración del Vehículo
+                        </div>
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <label for="tiresConfig" class="form-label">Neumáticos</label>
+                                    <select id="tiresConfig" class="form-select">
+                                        <option value="soft">Blando (Soft)</option>
+                                        <option value="medium" selected>Medio (Medium)</option>
+                                        <option value="hard">Duro (Hard)</option>
+                                        <option value="intermediate">Intermedio (Wet)</option>
+                                        <option value="wet">Lluvia Extrema (Full Wet)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="aeroConfig" class="form-label">Aerodinámica</label>
+                                    <input type="range" class="form-range config-slider" id="aeroConfig" min="1" max="10" value="5">
+                                    <div class="d-flex justify-content-between">
+                                        <small>Baja</small>
+                                        <small>Alta</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="fuelConfig" class="form-label">Combustible (kg)</label>
+                                    <input type="range" class="form-range config-slider" id="fuelConfig" min="50" max="110" value="80">
+                                    <div class="d-flex justify-content-between">
+                                        <small>50kg</small>
+                                        <small>110kg</small>
+                                    </div>
+                                    <div class="text-center" id="fuelValue">80 kg</div>
+                                </div>
+                            </div>
+                            <button id="runSimulationBtn" class="btn btn-primary w-100">
+                                <i class="fas fa-play"></i> Iniciar Simulación
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-trophy"></i> Resultados de Clasificación
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped" id="resultsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Pos</th>
+                                            <th>Piloto</th>
+                                            <th>Equipo</th>
+                                            <th>Tiempo</th>
+                                            <th>Diferencia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="resultsBody">
+                                        <!-- Los resultados se cargarán aquí -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="noResults" class="text-center py-3">
+                                Ejecuta la simulación para ver los resultados
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pestaña de Historial -->
+        <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-history"></i> Historial de Sesiones
+                </div>
+                <div class="card-body">
+                    <div class="row" id="historyCards">
+                        <!-- El historial se cargará aquí -->
+                    </div>
+                    <div id="noHistory" class="text-center py-3">
+                        No hay sesiones guardadas en el historial
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card mt-4" id="historyDetailCard" style="display: none;">
+                <div class="card-header">
+                    <i class="fas fa-info-circle"></i> Detalles de la Sesión
+                </div>
+                <div class="card-body">
+                    <div id="historyDetail">
+                        <!-- Los detalles se cargarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pestaña de Comparación -->
+        <div class="tab-pane fade" id="comparison" role="tabpanel" aria-labelledby="comparison-tab">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar"></i> Comparación de Tiempos por Circuito
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="comparisonCircuit" class="form-label">Seleccionar Circuito</label>
+                        <select id="comparisonCircuit" class="form-select">
+                            <option value="monza">Monza - Italia</option>
+                            <option value="monaco">Mónaco - Monte Carlo</option>
+                            <option value="silverstone">Silverstone - Reino Unido</option>
+                            <option value="spa">Spa-Francorchamps - Bélgica</option>
+                            <option value="suzuka">Suzuka - Japón</option>
+                        </select>
+                    </div>
+                    <canvas id="comparisonChart"></canvas>
+                    <div id="noComparisonData" class="text-center py-3">
+                        No hay datos suficientes para comparar
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-  <!-- Contenido principal -->
-  <main class="container mx-auto px-6 py-10 animate-slide-up">
-    <h1>Carreras!!!</h1>
-  </main>
+<footer class="bg-dark text-white text-center py-3 mt-5">
+    <div class="container">
+        <p class="mb-0">Simulador de Clasificación F1 &copy; 2025</p>
+    </div>
+</footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
