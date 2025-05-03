@@ -73,13 +73,12 @@ class NavAdminF1 extends HTMLElement {
                     <li><button onclick="window.location.href='../paginas2/equipos-admin.html'" class="boton-nav">Equipos</button></li>
                     <li><button onclick="window.location.href='../paginas2/circuitos-admin.html'" class="boton-nav">Circuitos</button></li>
                     <li><button onclick="window.location.href='../paginas2/vehiculos-admin.html'" class="boton-nav">Vehículos</button></li>
-                    <li><button onclick="window.location.href='../paginas2/simulacion-admin.html'" class="boton-nav">Simulación</button>
                     </li>
                 </ul>
             </div>
         `;
 
-        // Agregar elementos al shadow DOM
+      
         shadow.appendChild(style);
         shadow.appendChild(nav);
     }

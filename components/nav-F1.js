@@ -73,7 +73,6 @@ class NavF1 extends HTMLElement {
                     <li><button onclick="window.location.href='../paginas/equipos.html'" class="boton-nav">Equipos</button></li>
                     <li><button onclick="window.location.href='../paginas/circuitos.html'" class="boton-nav">Circuitos</button></li>
                     <li><button onclick="window.location.href='../paginas/vehiculos.html'" class="boton-nav">Vehículos</button></li>
-                    <li><button onclick="window.location.href='../paginas/simulacion.html'" class="boton-nav">Simulación</button>
                     </li>
                 </ul>
             </div>
