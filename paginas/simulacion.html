@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="#">
             <i class="fas fa-flag-checkered"></i> F1 Simulador de Clasificación
@@ -21,11 +21,13 @@
     </div>
 </nav>
 
-
 <div class="container mt-4">
     <ul class="nav nav-tabs" id="mainTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="simulation-tab" data-bs-toggle="tab" data-bs-target="#simulation" type="button" role="tab" aria-controls="simulation" aria-selected="true">Simulación</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="visual-tab" data-bs-toggle="tab" data-bs-target="#visual" type="button" role="tab" aria-controls="visual" aria-selected="false">Simulación Visual</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab" aria-controls="history" aria-selected="false">Historial</button>
@@ -144,6 +146,45 @@
             </div>
         </div>
         
+        <!-- Pestaña de Simulación Visual -->
+        <div class="tab-pane fade" id="visual" role="tabpanel" aria-labelledby="visual-tab">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-film"></i> Simulación Visual de Carrera
+                </div>
+                <div class="card-body">
+                    <div class="simulation-controls mb-4">
+                        <button id="startVisualSimulation" class="btn btn-primary">
+                            <i class="fas fa-play"></i> Iniciar Simulación Visual
+                        </button>
+                    </div>
+                    
+                    <div class="simulation-container">
+                        <div class="circuit-name" id="visualCircuitName">Circuito</div>
+                        
+                        <div class="sky" id="visualSky">
+                            <img class="cloud up" src="https://clipart-library.com/images/8i6oA9x5T.png" alt="nube">
+                            <img class="cloud down" src="https://clipart-library.com/images/8i6oA9x5T.png" alt="nube">
+                            <div class="rain" id="visualRain"></div>
+                            <div class="lightning" id="visualLightning"></div>
+                        </div>
+                        
+                        <div class="grass" id="visualGrass"></div>
+                        
+                        <div class="road">
+                            <div class="lines"></div>
+                            <div class="driver-info" id="driverInfo"></div>
+                            <!-- Los coches se añadirán dinámicamente aquí -->
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info" id="visualSimulationInfo">
+                        <i class="fas fa-info-circle"></i> Ejecuta primero una simulación en la pestaña "Simulación" y luego inicia la simulación visual para ver los resultados animados.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Pestaña de Historial -->
         <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
             <div class="card">
@@ -204,6 +245,39 @@
         <p class="mb-0">Simulador de Clasificación F1 &copy; 2025</p>
     </div>
 </footer>
+
+<!-- Modal de Carrera -->
+<div class="race-modal" id="raceModal">
+    <div class="race-modal-content">
+        <div class="race-container">
+            <h2 id="raceCircuitName">Circuito</h2>
+            
+            <div class="sky" id="modalSky">
+                <img class="cloud up" src="https://clipart-library.com/images/8i6oA9x5T.png" alt="nube">
+                <img class="cloud down" src="https://clipart-library.com/images/8i6oA9x5T.png" alt="nube">
+                <div class="rain" id="modalRain"></div>
+                <div class="lightning" id="modalLightning"></div>
+            </div>
+            
+            <div class="grass" id="modalGrass">
+                <div class="race-play-container" id="playButtonContainer">
+                    <button id="racePlayButton" class="race-play-button">PLAY</button>
+                </div>
+            </div>
+            
+            <div class="road" id="raceRoad">
+                <div class="lines"></div>
+                <!-- Los coches se añadirán dinámicamente -->
+            </div>
+            
+            <div class="winner-announcement" id="winnerAnnouncement">
+                <h2>And the winner is...</h2>
+                <h1 id="winnerName">Nombre del Ganador</h1>
+                <button id="closeRaceButton" class="btn btn-primary mt-3">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
