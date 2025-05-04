@@ -1,19 +1,20 @@
-import { pilotos } from '../data/data.js';
+import { pilotos } from "../data/data.js"
 
 document.addEventListener("DOMContentLoaded", () => {
-  const menuBtn = document.getElementById("menuBtn-pilotos");
-  const menuOptions = document.getElementById("menuOptions-pilotos");
+  const menuBtn = document.getElementById("menuBtn-pilotos")
+  // Seleccionar solo el primer menuOptions para evitar duplicados
+  const menuOptions = document.querySelectorAll("#menuOptions-pilotos")[0]
 
   if (!menuBtn || !menuOptions) {
-    console.error("No se encontró el botón o el menú de opciones.");
-    return;
+    console.error("No se encontró el botón o el menú de opciones.")
+    return
   }
 
   menuBtn.addEventListener("click", () => {
-    menuOptions.classList.toggle("hidden");
-  });
+    menuOptions.classList.toggle("hidden")
+  })
 
-    const modalStyles = `
+  const modalStyles = `
     <style>
       #modalPilotForm {
         position: fixed;
@@ -102,13 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
         border-color: red;
       }
     </style>
-  `;
+  `
 
-  const addButton = document.querySelector(".crud-option.text-green-400");
+  const addButton = document.querySelector(".crud-option.text-green-400")
 
   if (addButton) {
     addButton.addEventListener("click", () => {
-      if (document.querySelector('#formPilot')) return;
+      if (document.querySelector("#formPilot")) return
 
       const formHtml = `
         <div id="modalPilotForm">
@@ -127,14 +128,14 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         ${modalStyles}
-      `;
+      `
 
-      addButton.insertAdjacentHTML("afterend", formHtml);
+      addButton.insertAdjacentHTML("afterend", formHtml)
 
-      const form = document.querySelector('#formPilot');
+      const form = document.querySelector("#formPilot")
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
+      form.addEventListener("submit", (e) => {
+        e.preventDefault()
 
         const nuevoPiloto = {
           id: pilotos.length + 1,
@@ -143,13 +144,13 @@ document.addEventListener("DOMContentLoaded", () => {
           rol: form.rol.value.trim(),
           nacimiento: form.nacimiento.value,
           pais: form.pais.value.trim(),
-          imagen: form.imagen.value.trim()
-        };
+          imagen: form.imagen.value.trim(),
+        }
 
-        const rolValido = ["líder", "escudero"];
+        const rolValido = ["líder", "escudero"]
         if (!rolValido.includes(nuevoPiloto.rol.toLowerCase())) {
-          alert("El rol debe ser 'líder' o 'escudero'.");
-          return;
+          alert("El rol debe ser 'líder' o 'escudero'.")
+          return
         }
 
         if (
@@ -160,37 +161,41 @@ document.addEventListener("DOMContentLoaded", () => {
           !nuevoPiloto.pais ||
           !nuevoPiloto.imagen
         ) {
-          alert("Por favor, rellena todos los campos.");
-          return;
+          alert("Por favor, rellena todos los campos.")
+          return
         }
 
-        pilotos.push(nuevoPiloto);
-        alert("Piloto agregado correctamente.");
+        pilotos.push(nuevoPiloto)
 
-        const componentePilotos = document.querySelector("piloto-card");
+        // Guardar en localStorage
+        localStorage.setItem("pilotos", JSON.stringify(pilotos))
+
+        alert("Piloto agregado correctamente.")
+
+        const componentePilotos = document.querySelector("piloto-card")
         if (componentePilotos) {
-          componentePilotos.updatePilotos(pilotos);
+          componentePilotos.updatePilotos(pilotos)
         }
 
-        document.getElementById("modalPilotForm").remove();
-      });
+        document.getElementById("modalPilotForm").remove()
+      })
 
       document.querySelector(".close-modal").addEventListener("click", () => {
-        document.getElementById("modalPilotForm").remove();
-      });
+        document.getElementById("modalPilotForm").remove()
+      })
 
       document.getElementById("modalPilotForm").addEventListener("click", (e) => {
         if (e.target.id === "modalPilotForm") {
-          e.target.remove();
+          e.target.remove()
         }
-      });
-    });
+      })
+    })
   }
 
-  const editButton = document.querySelector(".crud-option.text-yellow-400");
+  const editButton = document.querySelector(".crud-option.text-yellow-400")
   if (editButton) {
     editButton.addEventListener("click", () => {
-      if (document.querySelector('#formPilot')) return;
+      if (document.querySelector("#formPilot")) return
 
       const formHtml = `
         <div id="modalPilotForm">
@@ -210,62 +215,155 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
         ${modalStyles}
-      `;
+      `
 
-      editButton.insertAdjacentHTML("afterend", formHtml);
+      editButton.insertAdjacentHTML("afterend", formHtml)
 
-      const form = document.querySelector('#formPilot');
+      const form = document.querySelector("#formPilot")
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
+      form.addEventListener("submit", (e) => {
+        e.preventDefault()
 
-        const idIngresado = parseInt(form.id.value, 10);
-        const pilotoExistente = pilotos.find(p => p.id === idIngresado);
+        const idIngresado = Number.parseInt(form.id.value, 10)
+        const pilotoExistente = pilotos.find((p) => p.id === idIngresado)
 
         if (!pilotoExistente) {
-          alert("El ID ingresado no corresponde a ningún piloto existente.");
-          form.id.classList.add("invalid");
-          return;
+          alert("El ID ingresado no corresponde a ningún piloto existente.")
+          form.id.classList.add("invalid")
+          return
         } else {
-          form.id.classList.remove("invalid");
+          form.id.classList.remove("invalid")
         }
 
-        const nuevoRol = form.rol.value.trim().toLowerCase();
-        const rolValido = ["líder", "escudero"];
+        const nuevoRol = form.rol.value.trim().toLowerCase()
+        const rolValido = ["líder", "escudero"]
         if (form.rol.value && !rolValido.includes(nuevoRol)) {
-          alert("El rol debe ser 'líder' o 'escudero'.");
-        }
-        else if (form.rol.value === ' ') {
+          alert("El rol debe ser 'líder' o 'escudero'.")
+        } else if (form.rol.value === " ") {
           //Dejar el que estaba antes
-          form.rol.value = pilotoExistente.rol;
+          form.rol.value = pilotoExistente.rol
         }
 
-        if (form.nombre.value.trim()) pilotoExistente.nombre = form.nombre.value.trim();
-        if (form.equipo.value.trim()) pilotoExistente.equipo = form.equipo.value.trim();
-        if (form.rol.value.trim()) pilotoExistente.rol = nuevoRol;
-        if (form.nacimiento.value) pilotoExistente.nacimiento = form.nacimiento.value;
-        if (form.pais.value.trim()) pilotoExistente.pais = form.pais.value.trim();
-        if (form.imagen.value.trim()) pilotoExistente.imagen = form.imagen.value.trim();
+        if (form.nombre.value.trim()) pilotoExistente.nombre = form.nombre.value.trim()
+        if (form.equipo.value.trim()) pilotoExistente.equipo = form.equipo.value.trim()
+        if (form.rol.value.trim()) pilotoExistente.rol = nuevoRol
+        if (form.nacimiento.value) pilotoExistente.nacimiento = form.nacimiento.value
+        if (form.pais.value.trim()) pilotoExistente.pais = form.pais.value.trim()
+        if (form.imagen.value.trim()) pilotoExistente.imagen = form.imagen.value.trim()
 
-        alert("Piloto editado correctamente.");
+        // Guardar en localStorage
+        localStorage.setItem("pilotos", JSON.stringify(pilotos))
 
-        const componentePilotos = document.querySelector("piloto-card");
+        alert("Piloto editado correctamente.")
+
+        const componentePilotos = document.querySelector("piloto-card")
         if (componentePilotos) {
-          componentePilotos.updatePilotos(pilotos);
+          componentePilotos.updatePilotos(pilotos)
         }
 
-        document.getElementById("modalPilotForm").remove();
-      });
+        document.getElementById("modalPilotForm").remove()
+      })
 
       document.querySelector(".close-modal").addEventListener("click", () => {
-        document.getElementById("modalPilotForm").remove();
-      });
+        document.getElementById("modalPilotForm").remove()
+      })
 
       document.getElementById("modalPilotForm").addEventListener("click", (e) => {
         if (e.target.id === "modalPilotForm") {
-          e.target.remove();
+          e.target.remove()
         }
-      });
-    });
+      })
+    })
   }
-});
+
+  // Implementación del botón de eliminar
+  const deleteButton = document.querySelector(".crud-option.text-red-400")
+  if (deleteButton) {
+    deleteButton.addEventListener("click", () => {
+      if (document.querySelector("#formPilot")) return
+
+      const formHtml = `
+        <div id="modalPilotForm">
+          <div class="modal-content">
+            <button class="close-modal" title="Cerrar">✕</button>
+            <form id="formPilot">
+              <h2>Eliminar piloto</h2>
+              <input id="id" type="number" placeholder="ID del piloto a eliminar" required>
+              <button type="submit">Eliminar</button>
+            </form>
+          </div>
+        </div>
+        ${modalStyles}
+      `
+
+      deleteButton.insertAdjacentHTML("afterend", formHtml)
+
+      const form = document.querySelector("#formPilot")
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault()
+
+        const idIngresado = Number.parseInt(form.id.value, 10)
+
+        // Cargar pilotos desde localStorage si existen
+        let pilotosArray = []
+        try {
+          const storedPilotos = localStorage.getItem("pilotos")
+          if (storedPilotos) {
+            pilotosArray = JSON.parse(storedPilotos)
+          } else {
+            pilotosArray = [...pilotos]
+          }
+        } catch (error) {
+          console.error("Error al cargar pilotos:", error)
+          pilotosArray = [...pilotos]
+        }
+
+        // Encontrar el índice del piloto a eliminar
+        const index = pilotosArray.findIndex((p) => p.id === idIngresado)
+
+        if (index === -1) {
+          alert("El ID ingresado no corresponde a ningún piloto existente.")
+          form.id.classList.add("invalid")
+          return
+        } else {
+          form.id.classList.remove("invalid")
+        }
+
+        // Confirmar eliminación
+        const confirmacion = confirm(`¿Estás seguro de que deseas eliminar al piloto ${pilotosArray[index].nombre}?`)
+        if (!confirmacion) return
+
+       
+        pilotosArray.splice(index, 1)
+
+        while (pilotos.length > 0) {
+          pilotos.pop()
+        }
+        pilotosArray.forEach((p) => pilotos.push(p))
+
+   
+        localStorage.setItem("pilotos", JSON.stringify(pilotosArray))
+
+        alert("Piloto eliminado correctamente.")
+
+        const componentePilotos = document.querySelector("piloto-card")
+        if (componentePilotos) {
+          componentePilotos.updatePilotos(pilotosArray)
+        }
+
+        document.getElementById("modalPilotForm").remove()
+      })
+
+      document.querySelector(".close-modal").addEventListener("click", () => {
+        document.getElementById("modalPilotForm").remove()
+      })
+
+      document.getElementById("modalPilotForm").addEventListener("click", (e) => {
+        if (e.target.id === "modalPilotForm") {
+          e.target.remove()
+        }
+      })
+    })
+  }
+})
