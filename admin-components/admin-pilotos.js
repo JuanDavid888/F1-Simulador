@@ -2,9 +2,7 @@ import { pilotos } from "../data/data.js"
 
 document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.getElementById("menuBtn-pilotos")
-
   const menuOptions = document.getElementById("menuOptions-pilotos")
-
 
   if (menuOptions) {
     menuOptions.classList.add("hidden")
@@ -14,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("No se encontró el botón o el menú de opciones.")
     return
   }
-
   
   function positionMenu() {
     const btnRect = menuBtn.getBoundingClientRect()
@@ -198,10 +195,8 @@ document.addEventListener("DOMContentLoaded", () => {
   `
   document.head.appendChild(menuStyles)
 
-  
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation() 
-
 
     positionMenu()
 
@@ -252,10 +247,8 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
-      
       menuOptions.classList.remove("show")
       setTimeout(() => {
         menuOptions.classList.add("hidden")
@@ -344,8 +337,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
-     
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
       menuOptions.classList.remove("show")
@@ -427,12 +418,9 @@ document.addEventListener("DOMContentLoaded", () => {
             </form>
           </div>
         </div>
-      `
-
-    
+      `    
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
-    
       menuOptions.classList.remove("show")
       setTimeout(() => {
         menuOptions.classList.add("hidden")
@@ -444,7 +432,6 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault()
 
         const idIngresado = Number.parseInt(form.id.value, 10)
-
         
         let pilotosArray = []
         try {
@@ -459,7 +446,6 @@ document.addEventListener("DOMContentLoaded", () => {
           pilotosArray = [...pilotos]
         }
 
-
         const index = pilotosArray.findIndex((p) => p.id === idIngresado)
 
         if (index === -1) {
@@ -470,10 +456,8 @@ document.addEventListener("DOMContentLoaded", () => {
           form.id.classList.remove("invalid")
         }
 
-
         const confirmacion = confirm(`¿Estás seguro de que deseas eliminar al piloto ${pilotosArray[index].nombre}?`)
         if (!confirmacion) return
-
 
         pilotosArray.splice(index, 1)
 
@@ -481,7 +465,6 @@ document.addEventListener("DOMContentLoaded", () => {
           pilotos.pop()
         }
         pilotosArray.forEach((p) => pilotos.push(p))
-
      
         localStorage.setItem("pilotos", JSON.stringify(pilotosArray))
 
@@ -506,8 +489,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   }
-
   positionMenu()
-
   window.addEventListener("resize", positionMenu)
 })

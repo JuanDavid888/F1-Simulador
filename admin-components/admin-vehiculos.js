@@ -243,7 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
       menuOptions.classList.remove("show")
@@ -331,7 +330,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
       menuOptions.classList.remove("show")
@@ -407,7 +405,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
       menuOptions.classList.remove("show")
@@ -480,8 +477,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   }
-
   positionMenu()
-
   window.addEventListener("resize", positionMenu)
 })

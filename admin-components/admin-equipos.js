@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBtn = document.getElementById("menuBtn-equipos")
   const menuOptions = document.getElementById("menuOptions-equipos")
 
-
   if (menuOptions) {
     menuOptions.classList.add("hidden")
   }
@@ -30,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     menuOptions.style.zIndex = "1000"
   }
 
-  
   const menuStyles = document.createElement("style")
   menuStyles.textContent = `
     #menuOptions-equipos {
@@ -205,11 +203,9 @@ document.addEventListener("DOMContentLoaded", () => {
   `
   document.head.appendChild(menuStyles)
 
-  
   menuBtn.addEventListener("click", (e) => {
     e.stopPropagation() 
 
-    
     positionMenu()
 
     if (menuOptions.classList.contains("hidden")) {
@@ -256,7 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
       menuOptions.classList.remove("show")
@@ -333,9 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
       document.body.insertAdjacentHTML("beforeend", formHtml)
-
 
       menuOptions.classList.remove("show")
       setTimeout(() => {
@@ -418,7 +411,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
       `
-
       // Insertar el modal en el body para que esté centrado
       document.body.insertAdjacentHTML("beforeend", formHtml)
 
@@ -456,7 +448,6 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Error al cargar equipos:", error)
           equiposArray = [...equipos]
         }
-
         
         const index = equiposArray.findIndex((e) => e.id === idIngresado)
 
@@ -505,9 +496,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
   }
-
-
   positionMenu()
-
   window.addEventListener("resize", positionMenu)
 })
