@@ -191,12 +191,12 @@ const pilotos = [
 
     { 
     id: 20, 
-    nombre: "Carlos Sainz", 
-    equipo: "Williams", 
+    nombre: "Adrian Ruiz", 
+    equipo: "Campus", 
     rol: "Escudero", 
-    nacimiento: "01/09/1994", 
-    pais: "España", 
-    imagen: "https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/drivers/2025Drivers/sainz" 
+    nacimiento: "10/31/1998", 
+    pais: "Perú", 
+    imagen: "https://media.discordapp.net/attachments/1334158463911071764/1368819952706125844/image.png?ex=68199c6c&is=68184aec&hm=d2c0d913c0e6fa8f84662cc1c6433528b95185334714dd8b0e90a7c7e75f2e92&=&format=webp&quality=lossless" 
     }
 ]
 
